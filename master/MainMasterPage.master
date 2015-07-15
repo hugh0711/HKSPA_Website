@@ -1,0 +1,684 @@
+﻿<%@ Master Language="VB" CodeFile="MainMasterPage.master.vb" Inherits="master_MainMasterPage" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+<%@ Register src="../control/LanguageControl.ascx" tagname="LanguageControl" tagprefix="uc1" %>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head runat="server">
+
+    <meta charset="utf-8">
+
+    <title>HKSPA</title>
+
+  <link rel="shortcut icon" type="image/x-icon" href="../favicon2.ico">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes"">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Styles -->
+    <link href="../css/hkspa/bootstrap.css" rel="stylesheet">
+    <link href="../css/hkspa/style.css" rel="stylesheet">
+    <link rel='stylesheet'  href="../css/hkspa/prettyPhoto.css" type='text/css' media='all'>
+    <link href="../css/hkspa/fontello.css" type="text/css" rel="stylesheet">
+    <!--[if lt IE 7]>
+            <link href="css/fontello-ie7.css" type="text/css" rel="stylesheet">  
+        <![endif]-->
+    <!-- Google Web fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Quattrocento:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <style>
+    body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+    }
+        </style>
+    <link href="../css/hkspa/bootstrap-responsive.css" rel="stylesheet">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <!-- Load ScrollTo -->
+    <script type="text/javascript" src="js/jquery.scrollTo-1.4.2-min.js"></script>
+    <!-- Load LocalScroll -->
+    <script type="text/javascript" src="js/jquery.localscroll-1.2.7-min.js"></script>
+    <!-- prettyPhoto Initialization -->
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function () {
+            $("a[rel^='prettyPhoto']").prettyPhoto();
+        });
+        </script>
+
+
+
+
+    <!-- Loading the javaScript at the end of the page -->
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
+    <script type="text/javascript" src="js/site.js"></script>
+
+
+    <!--ANALYTICS CODE-->
+	<script type="text/javascript">
+	    var _gaq = _gaq || [];
+	    _gaq.push(['_setAccount', 'UA-29231762-1']);
+	    _gaq.push(['_setDomainName', 'dzyngiri.com']);
+	    _gaq.push(['_trackPageview']);
+
+	    (function () {
+	        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	    })();
+	</script>
+
+
+    <script>
+        $(document).ready(function () {
+
+            var culture = '<%= Session("MyCulture").ToString()%>';
+            var button_clientID;
+
+            //document.getElementById('homepage_hlink').style.opacity = '0.6';
+           
+            if (culture == "en-us")
+            {
+                button_clientID = '<%= Session("btnTC")%>';
+                var element = document.getElementById(button_clientID);
+                 element.style.opacity = "0.6";
+            }
+            else if (culture == "zh-hk")
+            {
+                button_clientID = '<%= Session("btnEN")%>';
+                var element = document.getElementById(button_clientID);
+                element.style.opacity = "0.6";
+            }
+
+             
+
+
+        });
+
+       
+        
+
+    </script>
+
+
+
+     
+
+    <style type="text/css">  
+        .TableCSS  
+        {  
+            border-style:none;  
+            background-color:OrangeRed;  
+            width: 600px;  
+            }  
+        .TableHeader  
+        {  
+            background-color:DeepPink;  
+            color:Snow;  
+            font-size:large;  
+            font-family:Verdana;  
+            height:45px;  
+            }      
+        .TableData  
+        {  
+            background-color:HotPink;  
+            color:Snow;  
+            font-family:Courier New;  
+            font-size:medium;  
+            font-weight:bold;  
+            height:30px;  
+            }    
+        .TablePager  
+        {  
+            background-color:DarkSeaGreen;  
+            height:50px;  
+            }                                
+        .ButtonCSS  
+        {  
+            color:Green;  
+            height:35px;  
+            font-weight:bold;  
+            }      
+        .NumericButtonCSS  
+        {  
+            font-size:x-large;  
+            font-family:Courier New;  
+            color:Green;  
+            font-weight:bold;  
+            }    
+        .CurrentPageLabelCSS  
+        {  
+            font-size:xx-large;  
+            font-family:Courier New;  
+            color:Green;  
+            font-weight:bold;  
+            }   
+        .NextPreviousButtonCSS  
+        {  
+            font-size:large;  
+            font-family:Courier New;  
+            color:Green;  
+            font-weight:bold;  
+            }                                           
+    </style> 
+
+    
+
+
+
+<%--nav bar--%>
+
+
+    <link rel="stylesheet" type="text/css" media="all" href="../css/nav/style.css" />
+    
+    <script type="text/javascript" src="js/nav/jquery.custom.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" media="all" href="../css/dropdown_menu.css" />
+
+
+
+    
+
+
+
+
+
+ 
+
+
+
+
+
+<asp:Literal runat="server" id="lit_background"></asp:Literal>
+
+
+
+
+    <%--<asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>--%>
+</head>
+<body id="div_mainPage">
+    
+
+    <div id="swipe_event">
+    <form id="form1" runat="server">
+
+
+      <div style="display:none;" class="nav_up" id="nav_up"></div>
+		<div style="display:none;" class="nav_down" id="nav_down"></div>
+
+
+
+    
+        <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" CombineScripts="True" EnablePageMethods="true">
+            
+ </asp:ToolkitScriptManager>
+
+
+
+
+       
+           
+          
+
+
+        <!--******************** NAVBAR ********************-->
+    <div class="navbar-wrapper">
+
+
+
+<section id="top_menu">
+
+
+      <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+
+            <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> 
+
+                <span class="icon-bar"></span> <span class="icon-bar"></span> 
+                <span class="icon-bar"></span> 
+
+            </a>
+
+            <h1 class="brand">
+
+                <a href="#top">
+                <!--<img src="images/hkspaimg/logo2.png" alt="" width="300"  height="30">-->
+HKSPA
+                </a>
+
+            </h1>
+
+            <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
+
+            <nav class="pull-right nav-collapse collapse">
+
+           
+                
+                  
+                
+                
+                   <%--<ul id="menu-main" class="nav">--%>
+
+
+
+
+
+                      <%-- <li><asp:HyperLink ID="HyperLink7" runat="server" Text="主頁" NavigateUrl="~/"></asp:HyperLink></li>--%>
+
+
+
+
+
+
+
+
+
+
+
+
+                                 <%--<li><a title="portfolio" href="#portfolio"><img src="images/hkspaimg/nav/portfolio.png" alt="" width="70"></a></li>--%>
+                      
+                     
+    <!-- START HEADER -->
+                <div id="header" class="group">
+                           
+
+                           <div id="nav" class="group">
+                        <ul id="menu-main" class="nav">
+
+
+                            <li>
+
+                                <asp:HyperLink runat="server" id="homepage_hlink" NavigateUrl="~/Default.aspx" 
+                                meta:resourcekey="homepage_hlinkResource1" style="opacity:1;">主頁</asp:HyperLink>
+
+                                 <%--<a title="services" href="~/Default.aspx" runat="server" meta:resourcekey="homepage_Resource">主頁</a>--%>
+                               
+
+                            </li>
+
+
+                            <li class="home">
+
+                                <asp:HyperLink runat="server" id="portfolio_hlink" NavigateUrl="~/Default.aspx#portfolio" 
+                                meta:resourcekey="portfolio_hlinkResource1">作品集</asp:HyperLink>
+
+                                <%--<a title="portfolio" href="~/Default.aspx#portfolio" runat="server">作品集</a>--%>
+
+
+                                <%--<ul class="sub-menu">
+
+                                    <asp:Literal runat="server" ID="lit_submenu"></asp:Literal>
+
+                                </ul>--%>
+                            </li>
+                         
+                          
+                            <li>
+
+                                <asp:HyperLink runat="server" id="services_hlink" NavigateUrl="~/Default.aspx#services" 
+                                meta:resourcekey="services_hlinkResource1">宗旨</asp:HyperLink>
+
+                                <%--<a title="services" href="~/Default.aspx#services" runat="server">宗旨</a>--%>
+
+                            </li>
+
+
+                            <li>
+
+                                <asp:HyperLink runat="server" id="news_hlink" NavigateUrl="~/Default.aspx#news" 
+                                meta:resourcekey="news_hlinkResource1">最新消息</asp:HyperLink>
+
+                                <%--<a title="news" href="~/Default.aspx#news" runat="server">最新消息</a>--%>
+
+                            </li>
+                            
+
+                            
+                           <%-- <li ><uc1:LanguageControl ID="LanguageControl1" runat="server" /></li>--%>
+
+                          
+                                 
+                                
+				
+				                    
+							                    <%--<li><asp:HyperLink runat="server" id="ChiBtn" style="color:#222222;line-height:0px;">中文</asp:HyperLink></li>
+							                    <li><asp:HyperLink runat="server" id="EngBtn" style="color:#222222;line-height:0px;">English</asp:HyperLink></li>--%>
+							                   
+                                                <uc1:LanguageControl ID="LanguageControl1" runat="server" style="color:#222222;line-height:0px;" />
+						                   
+
+
+
+                               
+						                   
+
+
+
+                                <li>
+						                   
+
+
+
+                               
+						                   
+
+
+
+                                <%--<ul class="">
+                                    <li><asp:HyperLink runat="server" id="ChiBtn">中文</asp:HyperLink></li>
+                                    <li><asp:HyperLink runat="server" id="EngBtn">English</asp:HyperLink></li>
+                                </ul>--%>
+                               
+                           
+                            
+
+
+
+
+
+
+
+                               
+                            
+                        <asp:LoginView ID="LoginView1" runat="server">
+                            <AnonymousTemplate>
+
+
+
+
+
+
+                              <li>  
+
+                                  <asp:HyperLink runat="server" id="A1_hlink" NavigateUrl="~/login.aspx?iframe=true&width=500&height=600" rel="prettyPhoto"
+                                meta:resourcekey="A1_hlinkResource1">登入</asp:HyperLink>
+                                  
+                                  <%--<a id="A1" href="~/login.aspx?iframe=true&width=500&height=600" title="登入 Login" rel="prettyPhoto" runat="server">
+                                    登入
+                                   </a>--%>
+
+
+                              </li>
+
+
+                                </AnonymousTemplate>
+                            <LoggedInTemplate>
+
+                                <li><asp:LinkButton runat="server" ID="logout_hlink"  CausesValidation="false" meta:resourcekey="logout_hlinkResource1"  onclick="btnLogout_Click">登出</asp:LinkButton></li>
+       
+                                </LoggedInTemplate>
+                            <RoleGroups>
+                                <asp:RoleGroup Roles="admin">
+                                    <ContentTemplate>                                       
+                                <li><asp:LinkButton runat="server" ID="LinkButton2"  CausesValidation="false" meta:resourcekey="logout_hlinkResource1" onclick="btnLogout_Click">登出</asp:LinkButton></li>
+                                        <li> <asp:HyperLink ID="admin_hlink" runat="server" meta:resourcekey="admin_hlinkResource1"  NavigateUrl="~/backoffice/admin.aspx">管理係統</asp:HyperLink></li>
+</ContentTemplate>                            
+                                </asp:RoleGroup>
+                            </RoleGroups>
+                        </asp:LoginView>
+                        
+                           
+
+
+
+
+
+
+
+
+
+
+
+
+                            
+
+
+                            </li>
+                        
+                           
+
+
+
+
+
+
+
+
+
+
+
+
+                            
+
+
+                        </ul>
+
+                    </div>
+
+                    </div>
+                       
+                                 
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <%--            <li><a title="services" href="#services">&nbsp;<img src="images/hkspaimg/nav/about.png" alt="" width="70"></a></li>
+                                 <li><a title="news" href="#news"><img src="images/hkspaimg/nav/news.png" alt="" width="70"></a></li>
+                                <li><asp:HyperLink ID="HyperLink1" runat="server" Text="登入" NavigateUrl="~/login.aspx"></asp:HyperLink></li>--%>
+                        <%--</ul>--%>
+
+
+                               <%-- <asp:HyperLink ID="HyperLink7" runat="server" Text="主頁" NavigateUrl="~/"></asp:HyperLink> |
+                                <asp:Label runat="server" ID="lblRegister">登記</asp:Label> |
+                                <asp:HoverMenuExtender ID="HoverMenuExtender1" runat="server" TargetControlID="lblRegister" PopupControlID="pnlRegister" PopupPosition="Bottom" />
+                                <asp:Panel runat="server" ID="pnlRegister" CssClass="popup-panel" style="display:none;">
+                                    <asp:HyperLink ID="HyperLink6" runat="server" Text="登記會員" NavigateUrl="~/register.aspx"></asp:HyperLink><br />
+                                    <asp:HyperLink ID="HyperLink2" runat="server" Text="以Facebook登記" NavigateUrl="~/registerFB.aspx"></asp:HyperLink>
+                                </asp:Panel>
+                                <asp:HyperLink ID="HyperLink3" runat="server" Text="登入" NavigateUrl="~/login.aspx"></asp:HyperLink>--%>
+
+                            
+
+
+
+                                
+
+
+                              <%--  <asp:HyperLink ID="HyperLink7" runat="server" Text="主頁" NavigateUrl="~/"></asp:HyperLink> |
+                                <asp:HyperLink ID="HyperLink4" runat="server" Text="我的資料" NavigateUrl="~/member.aspx"></asp:HyperLink> |                         
+                                <asp:HyperLink ID="HyperLink3" runat="server" Text="我的影片" NavigateUrl="~/myvideo.aspx"></asp:HyperLink> |                         
+                                <asp:HyperLink ID="HyperLink2" runat="server" Text="我的資訊" NavigateUrl="~/mycollection.aspx"></asp:HyperLink> |                         
+                                <asp:LinkButton runat="server" ID="btnLogout" Text="登出" CausesValidation="false"  onclick="btnLogout_Click"></asp:LinkButton>--%>
+                            
+
+                                       <%-- <asp:HyperLink ID="HyperLink7" runat="server" Text="主頁" NavigateUrl="~/"></asp:HyperLink> |
+                                        <asp:HyperLink ID="HyperLink4" runat="server" Text="系統管理" NavigateUrl="~/backoffice/admin.aspx"></asp:HyperLink> |                         
+                                        <asp:HyperLink ID="HyperLink5" runat="server" Text="我的資料" NavigateUrl="~/member.aspx"></asp:HyperLink> |                         
+                                        <asp:HyperLink ID="HyperLink3" runat="server" Text="我的影片" NavigateUrl="~/myvideo.aspx"></asp:HyperLink> |                         
+                                        <asp:HyperLink ID="HyperLink2" runat="server" Text="我的資訊" NavigateUrl="~/mycollection.aspx"></asp:HyperLink> |                         
+
+                                        <asp:LinkButton runat="server" ID="btnLogout1" Text="登出" CausesValidation="false" onclick="btnLogout_Click"></asp:LinkButton>--%>
+                                    
+
+
+
+
+
+
+               
+        
+             
+            </nav>
+          </div>
+          <!-- /.container -->
+        </div>
+        <!-- /.navbar-inner -->
+      </div>
+      <!-- /.navbar -->
+
+
+
+
+  </section>
+
+
+
+    </div>
+
+
+
+
+ 
+
+
+
+
+    <!-- /.navbar-wrapper -->
+    <div id="top"></div>
+    <!-- ******************** HeaderWrap ********************-->
+    <div id="headerwrap">
+      <header class="clearfix">
+        <h1>&nbsp;</h1>
+
+        <h1>
+            <span>
+                <asp:Label runat="server" >HKSPA</asp:Label>  
+            </span> 
+            <asp:Label runat="server" ID="lbl_hkspa" meta:resourcekey="lbl_hkspaResource1" CssClass="" style="color: #FFFFFF;margin: 1em 0;font-family:'Patua One', cursive,\5FAE\8EDF\6B63\9ED1\9AD4,\65B0\7D30\660E\9AD4"><span>Hong Kong Sports Photography Association</span></asp:Label> 
+
+        </h1>
+
+        <div class="container">
+          <div class="row"></div>
+          <div class="row"></div>
+        </div>
+      </header>
+    </div>
+
+
+
+
+
+
+
+
+    <!--******************** Feature ********************-->
+    <div class="scrollblock">
+      <section id="feature">
+        <div class="container">
+          <div class="row">
+            <div class="span12">
+              <article>
+               <asp:Label runat="server" ID="lbl_Promoting" meta:resourcekey="lbl_PromotingResource1"><p>Promoting athletic sports photography.</p></asp:Label> 
+                <asp:Label runat="server" ID="lbl_copyright" meta:resourcekey="lbl_copyrightResource1"><p>Copyright © 2004 - 2014 Hong Kong Sports Photography Association All rights reserved</p></asp:Label> 
+              </article>
+            </div>
+            <!-- ./span12 -->
+          </div>
+          <!-- .row -->
+        </div>
+        <!-- ./container -->
+      </section>
+    </div>
+
+        
+<div>
+        <asp:ContentPlaceHolder id="MainContentPlaceHolder" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+
+
+        
+        <!--******************** Team Section ********************-->
+    <!--******************** Contact Section ********************-->
+    <section id="contact" class="single-page scrollblock">
+      <div class="container">
+        <div class="align">
+
+
+            <%--<img alt="" src="~/images/joinus.png" width="300" runat="server"/>--%>
+
+            <asp:Image runat="server" ImageUrl="~/images/hkspaimg/portfolio/joinus_eng.png" meta:resourcekey="img_joinusResource1" ID="img_joinus" Width="300" />
+
+        </div>
+          
+
+          <asp:Label runat="server" ID="lbl_joinus" meta:resourcekey="lbl_joinusResource1">
+            <h2 style="text-align:justify;">如各位有興趣加入本會為推動運動攝影文化、推廣香港本地運動出一分力的話，請下載及填妥入會表格，連同半身証件相片一張電郵至本會<a href="mailto:member@hkspa.org" style="color:#fff;">member@hkspa.org</a>。<br />
+                <br />
+                香港運動攝影協會<br />
+  通訊地址：九龍彌敦道610號荷李活商業中心1519室<br />
+  電　　話：2793 4535
+            </h2>
+</asp:Label>
+
+
+          <br />
+          <br />
+        <div class="row">
+          <div class="span12">
+            <div class="cform" id="theme-form">
+              <form action="#" method="post" class="cform-form">
+
+                <div align="center">
+
+                    <asp:Button runat="server" ID="btn_download" Text="按此下載" meta:resourcekey="btn_downloadResource1" OnClientClick="window.open('upload/HKSPA201307.pdf');return false;" />
+
+                  <%--<input type="button"  onClick="window.open('upload/HKSPA201307.pdf');"  value="按此下載" >--%>
+
+
+                </div>
+                <div class="cform-response-output"></div>
+              </form>
+            </div>
+          </div>
+          <!-- ./span12 -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </section>
+
+
+
+    </form>
+
+ 
+
+    </div>
+
+    
+
+
+
+</body>
+</html>

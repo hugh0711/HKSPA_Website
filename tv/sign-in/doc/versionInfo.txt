@@ -1,0 +1,221 @@
+﻿v 1.004 (20101104)
+- add characters '￦', '＼', '|'
+- korean.js bug fix  : change line 600
+
+v 1.003 (20101020)
+ - defect List
+	[0041769]
+	condition :  Basic type -> Korean -> typing ㅏ~ㅖ 
+	problem :  not deleting a character in text box(after changing the language, it can be deleted)
+	[0041770]
+	condition : Basic type -> # (select special characters)-> select '&'
+	problem : the label disappears when focusing on the '&' button  (all languages have common issue)
+	[0041771]
+	condition : Basic type -> Arabic -> select 'Upper/Lower Case' button twice 
+	problem : after changing the page, the character changes
+	[0041772]
+	condition : Basic type -> French ->  typing the letter(10 characters or more) -> select '▶' button 
+	problem : whole characters deleted in text box except last one character (all languages have common issue)
+	[0041773]
+	condition : Basic type -> Gungarian -> focusing on the 'o' 
+	problem : add space in text box
+	[0041774]
+	condition :  Basic type -> Arabic
+	problem : 'J' (6,4) is same as 'J' (5,8)
+	[0041775]
+	condition :  Basic type -> Select Language popup page -> unchecked 'Korean'
+	problem : Korean Hangul keyboard is supported in spite of exlusion of Korean language.
+	[0041781]
+	condition : Basic(Vertical) type -> Select Language popup page ->  select Kurdish 
+	problem : not support Kurdish
+	[0041782]
+	condition :  Basic(Vertical) type -> Select Language popup page ->  select Thai ->  # ( select special characters)
+	problem :  '%', '?", '!' are duplicated 
+	[0041783]
+	condition : Basic(Vertical) type -> Select Language popup page ->  select Thai -> lower case
+	problem : incorrect notation of д 
+	[0041785]
+	condition : Basic(Vertical) type -> Select Language popup page ->  select Polish-> focusing on 'z'
+	problem :  space is added when the empty space is selected in text box
+	[0041786]
+	condition : Basic(Vertical) type -> Select Language popup page ->  select Portugueses-> focusing on 'o'
+	problem : focus disappears when the focus moves.  
+	[0041787]
+	condition : Basic(Vertical) type -> Magic RC -> Select Language popup page
+	problem : cannot type characters when you use the magic RC
+	[0041788]
+	condition : Basic(Vertical) type -> Magic RC -> Select Language popup page-> select Hebrew
+	problem : cannot move the focus when you use the magic RC
+	[0041789]
+	condition : Vertical type ->  Select Language popup page-> select Estonian
+	problem : automatically go to the upper case change Focus (latvian, slovenian, slovak, and serbian have same issue)
+	[0041793]
+	condition : Vertical type ->  Select Language popup page-> select Greek, Kurdish, Danish, Hebrew, Latvian Check -> OK
+	problem : all the selected languages did not come out, and only one or two language (Korean/English) pages are changed
+	[0041794]
+	condition :  Vertical type ->  Select Language popup page-> select Slovenian -> Upper 'O'
+	problem : o notation in upper case
+	[0041818]
+	Condition : Horizontal type -> polish-> z is alternative.
+	problem : cancellation button is small at z windows, and it is security.
+	[0041819]
+	Condition : Horizontal type -> protuguese -> select "a"
+	problem : Don't move focus to right direction any more at third of a.
+	[0041820]
+	Condition : Horizontal type -> protuguese -> select O (a capital letter)
+	problem : focus is not generated in case of 0 approval.
+	[0041821]
+	Condition : Horizontal type -> select language change -> focus on the language change page by Down key 
+	problem : Keyboard window moves above.
+	[0041822]
+	Condition : Horizontal type -> hungarian -> select o 
+	problem : Don't move focus to right direction any more at third of o.
+	[0041823]
+	Condition : Horizontal type -> ▶ focusing -> Down Key approval
+	problem : focus is hidden
+	[0041824]
+	Condition : Horizontal type -> bulgarian -> lower case
+	problem : A lower case д notation error (macedonian, uzbek_cyrrilic).
+	[0041825]
+	Condition : Horizontal type -> bulgarian -> special character
+	problem : & notation error (macedonian, kazakh, rusian, Ukrainians,uzbek_cyrrilic).
+	[0041826]
+	Condition : Horizontal type -> french -> e
+	problem : Don't move focus to right direction any more at third of e.
+	[0041828]
+	Condition : Basic type -> Language Change and Down Key approval at the same time.
+	problem : Focus is not located in pop-up and pop-up screen cannot be closed.
+	[0041836]
+	Condition : Horizontal type -> Hebrew
+	problem : It is a mobile impossibility by linguistic keyboard changes to Down Key at the highest linguistic Check change buttons in languages without a capital letter at Horizontal type.
+	[0041837]
+	Condition : Basic type -> Uzbek_Modern Latin Check -> keyboard change key approval
+	problem : The following changed language is not marked as Uzbek_Modern Latin and marked as ENG.
+	[0041838]
+	Condition : Basic type -> Languge Check pop-up -> pop-up close -> approve Down Key once.
+	problem : Total pages move above
+	[0041839]
+	Condition : Basic type -> Language Check pop-up -> Korean Check cancellation -> move to the second page -> move to the first page
+	problem : it is automatically checked when moving the page after canceling Korean check.
+	[0041840]
+	Condition : Basic type -> Check Latvian, Lithuanian only at pop-up one page -> Move to the second page.
+	problem : the check mark is shown on the empty partition that has no language in the second page
+	[0041842]
+	Condition : Basic,Vertical type -> Insert into text exceed Text Box.
+	problem : key input is available but screen has no change when the input text exceeds the text box 
+	[0041843]
+	Condition : Horizontal typee.
+	problem : cannot check which language was selected
+
+
+defect Resolved
+
+
+v 1.002 (20101011)
+	- change basic type keyboard layout : 6x8 -> 7x8 
+	- add vertical, horizontal type keyboard layout 
+	
+	- support albanian script
+	- support arabic script
+	- support bosnian script
+	- support bulgarian script
+	- support croatian script
+	- support czech script	
+	- support danish script
+	- support estonian script	
+	- support finnish script
+	- support french script
+	- support german script
+	- support greek script
+	- support hebrew script
+	- support hungarian script
+	- support italian script
+	- support kazakh script	
+	- support latvian script
+	- support lithuanian script	
+	- support macedonian script
+	- support norwegian script
+	- support persian script
+	- support polish script
+	- support portuguese script
+	- support romanian script
+	- support russian script
+	- support serbian script	
+	- support slovak script
+	- support slovenian script	
+	- support spanish script
+	- support swedish script
+	- support thai script
+	- support turkish script
+	- support ukrainian script
+	- support uzbek_cyrrilic script
+	- support uzbek_modern latin script
+	- support vietnam script	
+	
+	- add Language Selection button
+	 	- select Language popup setting
+	       - selectLang()  :   "./selectLangPop.html";
+	- add Input box control button (left, right)
+	- distribute Toggle button
+
+	  
+	
+	
+	
+v 1.001 (20100629)
+	- support russian language
+		- replace language script (keyboard.html : line 19)
+		  : <script type="text/javascript" src="../js/lang/russian.js"></script>
+		  
+	- support deutsch language (mini-popup available)
+		- replace language script (keyboard.html : line 19)
+		  : <script type="text/javascript" src="../js/lang/deutsch.js"></script>
+		  
+	- mini popup setting (Please refer to deutsch.js : initialize() )
+		- mini popup type(id)
+			type 01 : 5 x 2
+	 		type 02 : 4 x 1
+	 		type 03 : 3 x 2
+	 		type 04 : 3 x 1
+	 		type 05 : 5 x 1
+	 		
+	 	- matrix id
+	 		mini_popup_01 :
+	 			00  |  01  |  02  | 03  |  04
+	 			10  |  11  |  12  | 13  |  14
+	 		mini_popup_02 :
+	 			00  |  01  |  02  |  03  
+	 		mini_popup_03 :
+	 			00  |  01  |  02  
+	 			10  |  11  |  12  
+	 		mini_popup_04 :
+	 			00  |  01  |  02  
+	 		mini_popup_05 :
+	 			00  |  01  |  02  |  03  |  04
+	 			
+	 	- popUpInfoObject :
+	 		- function-getPopUPInfoObject's return value
+	 		- function getPopUPInfoObject (
+	 			pageIdx,        
+	 			keyId,          
+	 			popUpId,        
+	 			keyValueArray,   
+	 			keyIdxArray,     
+	 			hideKeyArray,   
+	 			cancelBtnIdx    
+	 		)
+	 		- example
+	 			miniPopUpInfoObjects[0] = getPopUPInfoObject("0", "wkk_key_00", "04", new Array("a","ä"), new Array("00","01"), null, "02");
+	 			miniPopUpInfoObjects[1] = getPopUPInfoObject("0", "wkk_key_01", "01", new Array("1","2","3","4","5","6","7","8"), new Array("01","02","03","04", "10","11","12","13"), new Array("00"), "14");
+	 		
+	- change 'convert charset button', 'space button', 'backspace button' areas.
+		- nevigation code(function : getNextKeyId) in language scripts(english, korean ....) is changed.
+		- details
+			- 'convert charset button' : 3x1 -> 2x1
+			- 'space button' : move left
+			- 'backspace button' : 1x1 -> 2x1
+		
+		
+	 		 
+v 1.000 (20100625)
+	- initial release version.

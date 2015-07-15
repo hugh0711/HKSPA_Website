@@ -1,0 +1,77 @@
+
+
+/* navigation */
+#nav { font-family:Verdana, Tahoma, Arial, san-serif, '·L³n¥¿¶ÂÅé';  }
+#nav ul {list-style:none; margin-top:15px;}
+#nav ul li{display:inline-block; margin-right:25px; height:41px; line-height:32px; position:relative;
+    top: 0px;
+    left: 0px;
+}
+#nav ul li a, #nav ul li a:visited{color:#fff; font-size:16px; text-transform:uppercase; padding-top:12px; display:block;}
+#nav ul li a:hover, #nav .menu ul li.current_page_item a, #nav ul li.current-menu-item a{color:#000;}
+
+
+#nav .menu ul li,               #nav ul li.home     {background:url('images/icons/nav/home.png') top center no-repeat;}
+#nav .menu ul li.page-item-2,   #nav ul li.folder   {background:url('images/icons/nav/folder.png') top center no-repeat;}    
+#nav .menu ul li.page-item-3,   #nav ul li.bookmark {background:url('images/icons/nav/bookmark.png') top center no-repeat;} 
+#nav .menu ul li.page-item-4,   #nav ul li.burst    {background:url('images/icons/nav/burst.png') top center no-repeat;}       
+#nav .menu ul li.page-item-5,   #nav ul li.calendar {background:url('images/icons/nav/calendar.png') top center no-repeat;}   
+#nav .menu ul li.page-item-6,   #nav ul li.email    {background:url('images/icons/nav/email.png') top center no-repeat;}
+#nav .menu ul li.page-item-7,   #nav ul li.bag      {background:url('images/icons/nav/bag.png') top center no-repeat;}
+#nav .menu ul li.page-item-8,   #nav ul li.diap     {background:url('images/icons/nav/diap.png') top center no-repeat;}
+#nav .menu ul li.page-item-9,   #nav ul li.pen      {background:url('images/icons/nav/pen.png') top center no-repeat;}
+#nav .menu ul li.page-item-10,  #nav ul li.people   {background:url('images/icons/nav/people.png') top center no-repeat;}
+                             
+#nav .menu ul li:hover, #nav .menu ul li.current_page_item, #nav ul li.home:hover, #nav ul li.home.current-menu-item,
+#nav .menu ul li.page-item-2:hover,  #nav .menu ul li.page-item-2.current_page_item,  #nav ul li.folder:hover,    #nav ul li.folder.current-menu-item,
+#nav .menu ul li.page-item-3:hover,  #nav .menu ul li.page-item-3.current_page_item,  #nav ul li.bookmark:hover,  #nav ul li.bookmark.current-menu-item,
+#nav .menu ul li.page-item-4:hover,  #nav .menu ul li.page-item-4.current_page_item,  #nav ul li.burst:hover,     #nav ul li.burst.current-menu-item,
+#nav .menu ul li.page-item-5:hover,  #nav .menu ul li.page-item-5.current_page_item,  #nav ul li.calendar:hover,  #nav ul li.calendar.current-menu-item,
+#nav .menu ul li.page-item-6:hover,  #nav .menu ul li.page-item-6.current_page_item,  #nav ul li.email:hover,     #nav ul li.email.current-menu-item,
+#nav .menu ul li.page-item-7:hover,  #nav .menu ul li.page-item-7.current_page_item,  #nav ul li.bag:hover,       #nav ul li.bag.current-menu-item,
+#nav .menu ul li.page-item-8:hover,  #nav .menu ul li.page-item-8.current_page_item,  #nav ul li.diap:hover,      #nav ul li.diap.current-menu-item,
+#nav .menu ul li.page-item-9:hover,  #nav .menu ul li.page-item-9.current_page_item,  #nav ul li.pen:hover,       #nav ul li.pen.current-menu-item,
+#nav .menu ul li.page-item-10:hover, #nav .menu ul li.page-item-10.current_page_item, #nav ul li.people:hover,    #nav ul li.people.current-menu-item
+ {background-position:bottom center;}
+ 
+/* dropdown */
+#nav ul.sub-menu, #nav ul.children { display:none; margin:5px; position:absolute; top:42px; left:-18px; z-index:100000; list-style:none; margin:0; }                                                        
+#nav ul.sub-menu li, #nav ul.children li { clear:both; display:block; width:170px; border:none; height:auto; line-height:1em; margin:0; background:none; }                    
+#nav ul.sub-menu li a, #nav ul.children li a { font-size:0.75em; font-weight:normal; color:#eee; padding:6px 18px; }
+#nav ul.sub-menu li ul, #nav ul.children li ul { top:0; left:170px !important; }
+#nav ul.sub-menu li.left ul, #nav ul.children li.left ul { top:0; left:-200px !important; }
+#nav ul.black ul.sub-menu, #nav ul.black ul.children { -moz-box-shadow: 0 0 5px #000; padding:9px 0; -webkit-box-shadow: 0 0 5px #000; background-color:#000; filter:alpha(opacity = 80); border:1px solid #333; background:rgba(0,0,0,0.8); }
+#nav ul.black ul.sub-menu li:hover, #nav ul.black ul.sub-menu li.sub:hover, #nav ul.black ul.children li:hover, #nav ul.black ul.children li.sub:hover { background-color:#0F0F0F; background-color:rgba(0,0,0,0.6) }
+#nav ul.black ul.sub-menu li.sub, #nav ul.black ul.children li.sub { background:url('images/icons/arrow-sub.png') 156px center no-repeat }
+#nav ul.black ul.sub-menu ul, #nav ul.black ul.children ul { top:-10px }
+#nav ul.white ul.sub-menu, #nav ul.white ul.children { left:-10px; font-size: 1.05em; display:none; position:absolute; text-transform: none; padding:5px 0; background:#fff; border:1px solid #d3d3d3; z-index:100000; -webkit-box-shadow:0px 1px 3px rgba(0, 0, 0, 0.3);-moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3); }
+#nav ul.white ul.sub-menu li, #nav ul.white ul.children li { float:none; display:block; margin:0; line-height:1em; padding: 0 10px; }
+#nav ul.white ul.sub-menu li:first-child a, #nav ul.white ul.children li:first-child a { border:0; }
+#nav ul.white ul.sub-menu li a, #nav ul.white ul.children a { color:#8c969e; letter-spacing:0; display: block; padding:6px 0; border-top: 1px solid #DDD; text-align:left; }
+#nav ul.white ul.sub-menu li a:hover, #nav ul.white ul.children a:hover { color:#333; }
+#nav ul.white ul.sub-menu ul, #nav ul.white ul.children ul { top:-6px; }
+
+/*indicators*/
+#nav a.sf-with-ul{ min-width:1px; padding-right: 15px; }
+#nav .sf-sub-indicator{position:absolute; display:block; width:10px; height:7px; text-indent:-999em; background: url('images/menu-arrow.png') bottom left; top: 23px; left: 110% !important;}
+#nav a:focus >.sf-sub-indicator, 
+#nav a:hover >.sf-sub-indicator, 
+#nav a:active >.sf-sub-indicator, 
+#nav li:hover >a >.sf-sub-indicator, 
+#nav li.sfHover >a >.sf-sub-indicator{background: url('images/menu-arrow.png') top left;}
+
+#nav ul.sub-menu .sf-sub-indicator, #nav ul.children .sf-sub-indicator{ display:block; background: url('images/menu-arrow.png') bottom right; width: 7px; height: 11px; left: 85% !important; top: 6px;}
+#nav ul.sub-menu a >.sf-sub-indicator, #nav ul.children a >.sf-sub-indicator{ display:block; background: url('images/menu-arrow.png') bottom right; width: 7px; height: 11px; left: 85% !important; top: 6px}
+#nav ul.sub-menu a:focus >.sf-sub-indicator, 
+#nav ul.sub-menu a:hover >.sf-sub-indicator, 
+#nav ul.sub-menu a:active >.sf-sub-indicator, 
+#nav ul.sub-menu li:hover >a >.sf-sub-indicator, 
+#nav ul.sub-menu li.sfHover >a >.sf-sub-indicator,
+#nav ul.children a:focus >.sf-sub-indicator, 
+#nav ul.children a:hover >.sf-sub-indicator, 
+#nav ul.children a:active >.sf-sub-indicator, 
+#nav ul.children li:hover >a >.sf-sub-indicator, 
+#nav ul.children li.sfHover >a >.sf-sub-indicator{background: url('images/menu-arrow.png') top right; }
+
+#nav ul.black ul .sf-sub-indicator {display:none;}
+

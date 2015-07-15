@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Login</title>
+
+        <!-- Widget Stylesheets -->
+        <link rel="stylesheet" type="text/css" href="CSS/login.css"></link>
+		
+
+
+<!-- encode -->
+<script language="javascript" type="text/javascript" src="Javascript/encode/crypto-sha1-hmac.js"></script>
+<script language="javascript" type="text/javascript" src="Javascript/encode/aes-min.js"></script>
+<script language="javascript" type="text/javascript" src="Javascript/encode/blockmodes-min.js"></script>
+		
+<script language="javascript" type="text/javascript" src="Javascript/json/json2.js"></script>
+<!-- Widget code -->
+<script language="javascript" type="text/javascript" src="Javascript/Server.js"></script>
+<script language="javascript" type="text/javascript" src="Javascript/Data.js"></script>
+<script language="javascript" type="text/javascript" src="Javascript/Display.js"></script>
+<script language="javascript" type="text/javascript" src="Javascript/Login.js"></script>
+
+<!-- Video code -->
+<script language="javascript" type="text/javascript" src="Player/Player.js"></script>
+<script language="javascript" type="text/javascript" src="Player/PlayerDisplay.js"></script>
+<script language="javascript" type="text/javascript" src="Player/Audio.js"></script>
+
+
+	<div id="noti_wrapper">
+		<div id="noti_text">影片推介</div>
+	</div>
+    </head>
+
+    <body onload="Main.onLoad();" onunload="Main.onUnload();">
+		<a href='javascript:void(0);' id='anchor' onkeydown='Main.MainKeyHandler();'></a>
+		<div id="screen_wrapper">
+			<!--LOGO-->
+			<div id="logo_wrapper"></div>
+			<!--END LOGO-->
+			
+			<!--MAIN NAVIGATION-->
+			<div id="mainNav_wrapper">
+				<div id="mainNavItem0" class="mainNav">
+					<div id="mainNavItemText0" class="mainNavText selected_alt">登入</div>
+				</div>
+			</div>
+			<div class="shadow mainNav"></div>
+			<!--END MAIN NAVIGATION-->
+
+			<!--navi-->
+			<div id="navi">
+			
+			<!--
+				<div id="help_navi">
+				
+					<img src="assets/navi/play.png"></img>
+					<img src="assets/navi/stop.png"></img>
+					<img src="assets/navi/pause.png"></img>
+					<img src="assets/navi/rewind.png"></img>
+					<img src="assets/navi/forward.png"></img>&nbsp<a class="style_navi">Video Control</a>&nbsp&nbsp
+					<img src="assets/navi/enter.png"></img>&nbsp<a class="style_navi">Enter</a>&nbsp&nbsp
+					<img src="assets/navi/return.png"></img>&nbsp<a class="style_navi">Return</a>&nbsp&nbsp
+					<img src="assets/navi/red.png"></img>&nbsp<a class="style_navi">Red</a>&nbsp&nbsp
+					<img src="assets/navi/blue.png"></img>&nbsp<a class="style_navi">Blue</a>&nbsp&nbsp
+					<img src="assets/navi/green.png"></img>&nbsp<a class="style_navi">Green</a>&nbsp&nbsp
+					<img src="assets/navi/yellow.png"></img>&nbsp<a class="style_navi">Yellow</a>
+					
+				</div>
+				-->
+			<div id="navi_login">
+				<img id="btnReturnImage" src="assets/navi/return.png"></img>&nbsp<a class="style_navi">返回</a>&nbsp&nbsp
+				<img id="btnEnterImage" src="assets/navi/enter.png"></img>&nbsp<a class="style_navi">登入</a>&nbsp&nbsp
+			</div>	
+			</div>	
+			<!--END navi-->
+		</div>
+				<!--LOGIN-->
+		<div id="login_wrapper">
+			
+			<div class="loginEmail_text">帳戶</div>
+			<div class="loginPassword_text">密碼</div>
+			<input id="plainText" type="text" class="loginEmail_input"/>
+			<input id="passwordText" type="password" class="loginPassword_input"/>
+			<!--<div class="login_btn">登入</div>-->
+			<div id="notimsg" class="login_btn_msg"></div>
+			
+		</div>
+		<div class="LoginTitleBar">
+				<div id="LoginTitleText" class="LoginTitleText">登入</div>
+			</div>
+    </body>
+</html>

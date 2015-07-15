@@ -1,0 +1,895 @@
+@charset "utf-8";
+
+* {
+	padding: 0;
+	margin: 0;
+}
+* {
+	font-family:LG Display_Eng_Kor, LG Display;
+	margin : 0px 0 0 0px;
+}
+#noti_wrapper{
+	top: 0;
+	left: 0;
+	width: 1280px;
+	height: 720px;
+	position: absolute;
+	z-index: -20;
+	background-image: url("../../assets/commentbg.png");
+
+}
+
+#noti_text{
+	text-align: center;
+	width: 1280px;
+	height: 720px;
+	top: 340px;
+	position: absolute;
+	font-size:20px;
+	color: #ffffff;
+	font-weight:bold;
+}
+.LoginTitleBar{
+	width: 1200px;
+	height: 40px;
+	left: 200px;
+	top: 0px;
+	background-image: url(../../assets/topbar.png);
+	position: absolute;
+}
+.LoginTitleText{
+	width: 1280px;
+	height: 35px;
+	margin-left: 20px;
+	margin-right: 5px;
+	text-align: left;
+	line-height:100%;
+	font-size: 18px;
+	overflow: hidden;
+	color: #f16687; 
+	padding: 13px 15px 0;
+	left: 20px;
+	font-weight:bold;
+}
+#logo_wrapper{
+	width: 200px;
+	height: 132px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 10;
+	background-image: url(../../assets/maji_logo.png);
+}
+#screen_wrapper{
+	top: 0;
+	left: 0;
+	position:absolute;
+	width: 1280px;
+	height: 720px;
+	background-image: url(../../assets/bg.png);
+	
+}
+/*=========Main Nav=========*/
+#mainNav_wrapper{
+	width: 200px;
+	height: 720px;
+	left: 0px;
+	top: 0px;
+	background-image: url(../../assets/listbg.jpg);
+	position: absolute;
+	z-index:5;
+/*	-moz-box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+	-webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+	box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);*/
+}
+.mainNav{
+	display: block;
+	width: 150px;
+	height: 50px;
+	background-color: transprant;
+}
+.mainNav.alt{
+	background-color: transprant;
+}
+.mainNav.selected{
+	background-image: url(../../assets/listitem_highlight.png);
+}
+
+.mainNavText{
+	display: table-cell;
+	/*vertical-align:middle;*/
+	padding-top: 14px;
+	
+	font-size:14px;
+	width: 131px;
+	height: 50px;
+	color: #3b8fa6;
+	font-weight:regular;
+	font-size:18pt;
+	text-align: left;
+}
+.mainNavText.selected{
+	color: #f16687;
+	font-weight:regular;
+	
+}
+
+.mainNavText.selected_alt{
+	color: #3b8fa6;
+	font-weight:bold;
+}
+/*keyboardmain*/ 
+.keyboardArea {
+	width: 1280px; 
+	height: 600px; 
+	position: absolute; 
+	top: 148px; 
+	left: 0px;	
+}
+
+
+.hkeyboardArea {
+	width: 1280px; 
+	height: 600px; 
+	position: absolute; 
+	top: 0px; 
+	left: 0px;
+}
+	
+
+/*title style*/
+.titleStyle { 
+	font-size:45px; 
+	color: rgb(250,250,250);
+}
+
+
+.htitleStyle { 
+	font-size:45px; 
+	color: black;
+}
+
+/*desc style*/
+.descStyle {
+	width : 465px;
+	font-size:30px; 
+	color: rgb(166,166,166);
+}
+
+/*button style*/
+.buttonStyle {
+	margin-bottom: 0px;
+	width: 234px; 
+	height: 60px; 
+	line-height:55px;
+	background : url('../image/BTN_NORMAL_mid.png');
+	display: table-column;
+	vertical-align: middle;
+	text-align: center;	
+	position: absolute;
+	top: 0px;
+	font-size:36px;
+	color: rgb(250,250,250);
+}
+
+/*text bar*/
+.textBarStyle { 
+	font-size: 38px; 
+	height: 53px ; 
+	width: 443px; 	
+	padding-left: 3px;
+	/*padding-right:7px;	
+	background-color : gray;*/
+	background : url('../image/SEARCH_INPUT_NORMAL.png');
+	color: white;
+	border: 0px;
+	outline: none;
+
+}
+
+
+
+/*one row on key area*/
+.oneRowDivStyle {
+	width: 640px; 
+	height: 48px;
+	position: absolute;
+	left: 0px;
+}
+
+/*button style*/
+
+.btnNormal {
+	/*width: 81px; 
+	height: 56px;*/
+	width: 77px; 
+	height: 52px;
+	line-height:50px; 
+	vertical-align: middle;
+	font-size: 36px;
+	color: rgb(250,250,250);
+	text-align: center;	
+	position: absolute;
+	top: 0px;
+	background: url('../image/basic/KEYBOARD_BTN_01_N.png');
+}
+
+.btnPopUpNormal {
+	width: 77px; 
+	height: 52px;
+	line-height:50px; 
+	vertical-align: middle;
+	font-size: 36px;
+	color: rgb(250,250,250);
+	text-align: center;	
+	position: absolute;
+	background: url('../image/KEYBOARD_BTN_01_N.png');
+}
+.btnPopUpNormalCancel {
+	width: 81px; 
+	height: 56px;
+	line-height:50px; 
+	vertical-align: middle;
+	font-size: 26px;
+	color: rgb(250,250,250);
+	text-align: center;	
+	position: absolute;
+	background: url('../image/KEYBOARD_BTN_01_N.png');
+}
+
+.btnNormalNum {
+	width: 77px; 
+	height: 52px;
+	line-height:50px;
+	font-size: 36px;
+	vertical-align: middle;
+	color: rgb(250,250,250);
+	text-align: center;	
+	position: absolute;
+	top: 0px;
+	background: url('../image/basic/KEYBOARD_BTN_02_N.png');
+}
+
+/*Test용 추가*/
+.btnMiddlNum {
+	width: 162px; 
+	height: 56px;
+	line-height:50px;
+	font-size: 36px;
+	vertical-align: middle;
+	color: rgb(250,250,250);
+	text-align: center;	
+	position: absolute;
+	top: 0px;
+	/*background: url('../image/KEYBOARD_BTN_02_N.png');*/
+	background-color : gray;
+}
+
+.btnSmallNum {
+	width: 77px; 
+	height: 52px;
+	line-height:50px;
+	font-size: 25px;
+	vertical-align: middle;
+	color: rgb(250,250,250);
+	text-align: center;	
+	position: absolute;
+	top: 0px;
+	background: url('../image/basic/KEYBOARD_BTN_02_N.png');
+	
+}
+
+.btnNormalMiddle {
+	margin-bottom: 0px; 
+	width: 81px; 
+	height: 56px; 
+	line-height:50px;
+	background: url('../image/KEYBOARD_BTN_03_N.png');
+	vertical-align: middle;
+	text-align: center;	
+	position: absolute;
+	top: 0px;
+	font-size: 26px;
+}
+
+.btnNormalLong {
+	background: url('../image/KEYBOARD_BTN_04_N.png');
+	width: 251px; 
+	height: 56px;
+	line-height:50px;
+	vertical-align: middle;
+	text-align: center;	
+	position: absolute;
+	top: 0px;
+	font-size: 36px;
+}
+
+
+.btnNormalFocus {
+	width: 97px; 
+	height: 72px;
+	line-height:68px;
+	vertical-align: middle;
+	font-size: 46px;
+	color: rgb(250,250,250);
+	text-align: center;	
+	position: absolute;
+	top: 0px;
+	background: url('../image/KEYBOARD_BTN_01_P.png');
+}
+
+.btnSmallFocus {
+	width: 97px; 
+	height: 72px;
+	line-height:68px;
+	vertical-align: middle;
+	font-size: 35px;
+	color: rgb(250,250,250);
+	text-align: center;	
+	position: absolute;
+	top: 0px;
+	background: url('../image/KEYBOARD_BTN_01_P.png');
+}
+
+.btnMiddleFocus {
+	margin-bottom: 0px; 
+	width: 184px; 
+	height: 76px; 
+	line-height:68px;
+	background: url('../image/KEYBOARD_BTN_02_P.png');
+	vertical-align: middle;
+	text-align: center;	
+	position: absolute;
+	top: 0px;
+	font-size: 30px;
+}
+
+.btnLongFocus {
+	background: url('../image/KEYBOARD_BTN_03_P.png');
+	width: 352px; 
+	height: 76px;
+	line-height:68px;
+	vertical-align: middle;
+	text-align: center;	
+	position: absolute;
+	top: 0px;
+	font-size: 46px;
+}
+
+.miniPopUp04 {
+	background: url('../image/KEYBOARD_MINIPOPUP_BG_04.png'); 
+	position: absolute; 
+	width: 273px; 
+	height: 82px;
+}
+.miniPopUp01 {
+	background: url('../image/KEYBOARD_MINIPOPUP_BG_01.png'); 
+	position: absolute; 
+	width: 433px; 
+	height: 138px;
+}
+.miniPopUp02 {
+	background: url('../image/KEYBOARD_MINIPOPUP_BG_02.png'); 
+	position: absolute; 
+	width: 353px; 
+	height: 82px;
+}
+.miniPopUp03 {
+	background: url('../image/KEYBOARD_MINIPOPUP_BG_03.png'); 
+	position: absolute; 
+	width: 273px; 
+	height: 138px;
+}
+.miniPopUp05 {
+	background: url('../image/KEYBOARD_MINIPOPUP_BG_05.png'); 
+	position: absolute; 
+	width: 433px; 
+	height: 82px;
+}
+
+
+
+
+/*version info*/
+#versionInfo { 
+	font-size: 15pt; 
+	color: #0077AA; 
+	position: absolute; 
+	width: 200px; 
+	height: 19px; 
+	top: 10px ; 
+	left: 1000px; 
+}
+
+.titlelogo {
+	font-size: 45px;
+	color: #9d9d9d;
+}
+
+.tabArea {
+	width:1280px; 
+	height:50px; 
+	background-image:url(../image/title/TITLE_TAB_BG_BLACK.png); 
+	background-repeat: repeat-x;	
+}
+
+
+.keyhelp {
+	position: absolute; 
+	font-size: 26px; 
+	color: rgb(182,182,182);	
+	vertical-align: middle;
+	margin-left: 20px;
+	top:640px;
+	width: 191px;
+	height: 56px;
+	text-align: center;
+	background-image:url(../image/KEYHELP/KEYHELP_NORMAL.png);
+}
+
+
+/* selectPopup Add*/
+.langArrImage{
+	
+	width: 78px; height: 78px; 
+	position: absolute;
+	
+}
+
+.selectPopUp {
+	top: 100px; 
+	left: 300px; 
+	position: absolute; 
+	width: 1000px; 
+	height: 500px;
+	background-color: gray;
+}
+
+.btnMouseOver{
+	width: 206px; 
+	height: 52px;
+	line-height:68px;
+	vertical-align: middle;
+	font-size: 46px;
+	color: rgb(250,250,250);
+	text-align: center;	
+	position: absolute;
+	top: 0px;
+	background: url('../image/LANGUAGE_LIST_FOCUS.png');
+}
+
+
+/*****************************************************/
+/******************** PopUp Style ********************/
+/*****************************************************/
+
+.poupBtnMouseOver{
+	width: 156px; 
+	height: 52px;
+	line-height:48px;
+	vertical-align: middle;
+	font-size: 20pt;
+	color: rgb(62,63,103);	
+	position: absolute;			
+	padding-left:50px;	
+	background: url('../image/LANGUAGE_LIST_FOCUS.png');
+}
+
+
+.poupLangFont{	
+	font-size: 16pt;		
+	width:145px;
+	height: 45px;		
+	vertical-align: middle;	
+}
+
+
+.poupCheckBox{
+	width:50px;
+	height:50px;	
+	text-align: center;
+	/*vertical-align: middle;*/
+		
+
+	
+	/*background: url('../image/popup_checkbox.png');*/
+}
+
+.popupTitle{
+	color: rgb(62,63,103); 
+	font-size: 30pt; 	
+	text-align: center;		
+	position: absolute;
+	top: 15px;	
+	left : 190px;
+}
+
+/* checkBoxMouseOver Add*/
+.checkBoxMouseOver{
+	width: 24px; 
+	height: 24px;
+	line-height:68px;
+	vertical-align: middle;
+	font-size: 46px;
+	color: rgb(250,250,250);
+	text-align: center;	
+	position: absolute;
+	top: 0px;	
+}
+
+/********************************************************/
+/******************** Vertical Style ********************/
+/********************************************************/
+/* vertical */
+.vtextBarStyle { 
+	font-size: 38px; 
+	height: 57px ; 
+	width: 418px; 	
+	padding-left: 15px;	
+	/*background-color : gray;*/
+	background : url('../image/vertical/VER_SEARCH_INPUT_NORMAL.png');
+	color: white;
+	border: 0px;
+	outline: none;
+}
+
+.vbtnNormal{
+	width: 68px; 
+	height: 51px;
+	line-height:50px; 
+	vertical-align: middle;
+	font-size: 30px;
+	color: rgb(250,250,250);
+	text-align: center;	
+	position: absolute;
+	top: 0px;
+	background: url('../image/vertical/VER_KEYBOARD_BTN_01_N.png');
+}
+.vbtnPopUpNormal {
+	width: 68px; 
+	height: 51px;
+	line-height:50px; 
+	vertical-align: middle;
+	font-size: 36px;
+	color: rgb(250,250,250);
+	text-align: center;	
+	position: absolute;
+	background: url('../image/vertical/VER_KEYBOARD_BTN_01_N.png');
+}
+
+.voneRowDivStyle {
+	width: 452px; 
+	height: 58px;
+	position: absolute;
+	left: 0px;
+}
+
+.vbuttonStyle {
+	margin-bottom: 0px;
+	width: 229px; 
+	height: 60px; 
+	line-height:55px;
+	background : url('../image/vertical/VER_BTN_NORMAL.png');
+	display: table-column;
+	vertical-align: middle;
+	text-align: center;	
+	position: absolute;
+	top: 0px;
+	font-size:36px;
+	color: rgb(250,250,250);
+}
+
+.vbtnNormalFocus {
+	width: 86px; 
+	height: 65px;
+	line-height:68px;
+	vertical-align: middle;
+	font-size: 46px;
+	color: rgb(250,250,250);
+	text-align: center;	
+	position: absolute;
+	top: 0px;
+	background: url('../image/vertical/VER_KEYBOARD_BTN_01_P.png');
+}
+.vbtnSmallFocus {
+	width: 86px; 
+	height: 65px;
+	line-height:68px;
+	vertical-align: middle;
+	font-size: 36px;
+	color: rgb(250,250,250);
+	text-align: center;	
+	position: absolute;
+	top: 0px;
+	background: url('../image/vertical/VER_KEYBOARD_BTN_01_P.png');
+}
+
+.vbtnNormalImageFocus {
+	width: 86px; 
+	height: 65px;
+	line-height:68px;
+	vertical-align: middle;
+	font-size: 46px;
+	color: rgb(250,250,250);
+	text-align: center;	
+	position: absolute;
+	top: 0px;	
+}
+
+.vminiPopUp04 {
+	background: url('../image/vertical/VER_KEYBOARD_MINIPOPUP_BG_06.png'); 
+	position: absolute; 
+	width: 248px; 
+	height: 80px;
+}
+.vminiPopUp01 {
+	background: url('../image/vertical/VER_KEYBOARD_MINIPOPUP_BG_01.png'); 
+	position: absolute; 
+	width: 392px; 
+	height: 138px;
+}
+.vminiPopUp02 {
+	background: url('../image/vertical/VER_KEYBOARD_MINIPOPUP_BG_02.png'); 
+	position: absolute; 
+	width: 320px; 
+	height: 80px;
+}
+.vminiPopUp03 {
+	background: url('../image/vertical/VER_KEYBOARD_MINIPOPUP_BG_03.png'); 
+	position: absolute; 
+	width: 248px; 
+	height: 138px;
+}
+.vminiPopUp05 {
+	background: url('../image/vertical/VER_KEYBOARD_MINIPOPUP_BG_05.png'); 
+	position: absolute; 
+	width: 392px; 
+	height: 80px;
+}
+
+
+
+/*************************************************
+***************horizontal style*******************
+**************************************************/
+
+/*horizontal keyboardmain*/ 
+.keyboardArea2 {
+	width: 1460px; 
+	height: 200px; 
+	position: absolute; 
+	top: 0px; 
+	left: 0px;	
+}
+
+/*horizontal button style*/
+.horButtonStyle {
+	margin-bottom: 0px;
+	width: 221px; 
+	height: 59px; 
+	left : 1040px;
+	top : 0px;
+	line-height:55px;
+	background : url('../image/horizontal/HOR_BTN_NORMAL.png');
+	display: table-column;
+	vertical-align: middle;
+	text-align: center;	
+	position: absolute;
+	font-size:36px;
+	color: rgb(250,250,250);
+}
+
+/*horizontal text bar*/
+.horTextBarStyle { 
+	font-size: 32px;
+	color: rgb(180,180,180);
+	text-align: left;	
+	height: 56px ; 
+	width: 1008px; 
+	top : 10px;
+	left : 10px;
+	padding-left: 15px;		
+	/*background-color : gray;*/
+	background : url('../image/horizontal/HOR_SEARCH_INPUT_NORMAL.png');
+	color: white;
+	border: 0px;
+	outline: none;	
+}
+
+/*horizontal one row on key area*/
+.horOneRowDivStyle {
+	width: 1251px; 
+	height: 59px;
+	position: absolute;
+	left: 0px;
+}
+
+
+/* horizontal button style */
+.horBtnNormal {
+	width: 71px; 
+	height: 56px;
+	line-height:50px; 
+	vertical-align: middle;
+	font-size: 32px;
+	color: rgb(250,250,250);
+	text-align: center;	
+	position: absolute;
+	top: 0px;
+	background: url('../image/horizontal/HOR_KEYBOARD_BTN_01_N.png');
+}
+
+
+/*horizontal middle button */
+.btnHorNormalMiddle {
+	margin-bottom: 0px; 
+	width: 145px; 
+	height: 56px; 
+	color: rgb(250,250,250);
+	line-height:50px;
+	background: url('../image/horizontal/HOR_KEYBOARD_BTN_03_N.png');
+	vertical-align: middle;
+	text-align: center;	
+	position: absolute;
+	top: 0px;
+	font-size: 26px;
+}
+
+
+/* horizontal normal long button */
+.btnHorNormalLong {
+	background: url('../image/horizontal/HOR_KEYBOARD_BTN_SPACE_N.png');
+	width: 367px; 
+	height: 56px;
+	line-height:50px;
+	vertical-align: middle;
+	text-align: center;	
+	position: absolute;
+	top: 0px;
+	font-size: 36px;
+}
+
+
+/*horizontal normal focus */
+.btnHorNormalFocus {
+	width: 89px; 
+	height: 76px;
+	line-height:68px;
+	vertical-align: middle;
+	font-size: 34px;
+	color: rgb(250,250,250);
+	text-align: center;	
+	position: absolute;
+	top: 0px;
+	background: url('../image/horizontal/HOR_KEYBOARD_BTN_01_P.png');
+}
+
+
+/*horizontal middle focus */
+.btnHorMiddleFocus {
+	margin-bottom: 0px; 
+	width: 163px; 
+	height: 76px; 
+	line-height:68px;
+	background: url('../image/horizontal/HOR_KEYBOARD_BTN_03_P.png');
+	vertical-align: middle;
+	color: rgb(250,250,250);
+	text-align: center;	
+	position: absolute;
+	top: 0px;
+	font-size: 30px;
+}
+
+
+/* horizontal long focus */
+.btnHorLongFocus {
+	background: url('../image/horizontal/HOR_KEYBOARD_BTN_SPACE_P.png');
+	width: 376px; 
+	height: 76px;
+	line-height:68px;
+	vertical-align: middle;
+	text-align: center;	
+	position: absolute;
+	top: 0px;
+	font-size: 46px;
+}
+
+
+
+/* mini Popup */
+.hminiPopUp04 {
+	background: url('../image/horizontal/HOR_KEYBOARD_MINIPOPUP_BG_04.png'); 
+	position: absolute; 
+	width: 256px; 
+	height: 86px;
+}
+.hminiPopUp01 {
+	background: url('../image/horizontal/HOR_KEYBOARD_MINIPOPUP_BG_01.png'); 
+	position: absolute; 
+	width: 403px; 
+	height: 145px;
+}
+.hminiPopUp02 {
+	background: url('../image/horizontal/HOR_KEYBOARD_MINIPOPUP_BG_02.png'); 
+	position: absolute; 
+	width: 329px; 
+	height: 86px;
+}
+.hminiPopUp03 {
+	background: url('../image/horizontal/HOR_KEYBOARD_MINIPOPUP_BG_03.png'); 
+	position: absolute; 
+	width: 478px; 
+	height: 86px;
+}
+.hminiPopUp05 {
+	background: url('../image/horizontal/HOR_KEYBOARD_MINIPOPUP_BG_06.png'); 
+	position: absolute; 
+	width: 404px; 
+	height: 86px;
+}
+
+.hbtnPopUpNormal {
+	width: 71px; 
+	height: 56px;
+	line-height:50px; 
+	vertical-align: middle;
+	font-size: 36px;
+	color: rgb(250,250,250);
+	text-align: center;	
+	position: absolute;
+	background: url('../image/horizontal/HOR_KEYBOARD_BTN_01_N.png');
+}
+
+.hbtnNormalFocus {
+	width: 89px; 
+	height: 76px;
+	line-height:68px;
+	vertical-align: middle;
+	font-size: 46px;
+	color: rgb(250,250,250);
+	text-align: center;	
+	position: absolute;
+	top: 0px;
+	background: url('../image/horizontal/HOR_KEYBOARD_BTN_01_P.png');
+}
+
+.thumbnailArrImg{	
+	background-repeat: no-repeat;
+	width: 78px; height: 78px; 
+	position: absolute;
+	z-index: 3000; 	
+}
+
+
+/* sign-in */
+
+.textBarStyle2 { 
+	font-size: 34px; 
+	height: 55px ; 
+	width: 275px;
+	padding-left: 10px;	
+	/*background-color : gray;*/
+	background : url('../image/login/LOGIN_INPUT_NORMAL.png');
+	color: white;
+	border: 0px;
+	outline: none;	
+}
+
+
+.btnSmallNum2 {
+	width: 67px; 
+	height: 54px;
+	position: absolute;
+	top: 0px;
+}
+
+.btnNormalFocus2 {
+	width: 67px; 
+	height: 44px;
+	top: 0px;
+}
+
+.titleStyle2 { 
+	font-size:34px; 
+	color: rgb(250,250,250);
+}

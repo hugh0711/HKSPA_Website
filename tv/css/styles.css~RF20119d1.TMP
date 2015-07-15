@@ -1,0 +1,273 @@
+@charset "UTF-8";
+
+/*=========Common Styles=========*/
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    position: relative;
+    color:#FFFFFF;
+    background-color: transpant;
+	overflow: hidden;
+} 
+#logo_wrapper{
+	width: 150px;
+	height: 101px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 10;
+	background-image: url(../assets/maji_logo.png);
+/*	-moz-box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+	-webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+	box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);*/
+}
+#screen_wrapper{
+	top: 0;
+	left: 0;
+	position:absolute;
+	width: 960px;
+	height: 540px;
+	background-image: url(../assets/bg.png);
+}
+
+/*=========Main Nav=========*/
+#mainNav_wrapper{
+	width: 150px;
+	height: 439px;
+	left: 0px;
+	top: 101px;
+	background-image: url(../assets/listbg.png);
+	position: absolute;
+	z-index:10;
+/*	-moz-box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+	-webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+	box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);*/
+}
+.mainNav{
+	display: block;
+	width: 150px;
+	height: 50px;
+	background-color: transprant;
+}
+.mainNav.alt{
+	background-color: transprant;
+}
+.mainNav.selected{
+	background-image: url(../assets/listitem_highlight.png);
+}
+
+.mainNavText{
+	display: table-cell;
+	/*vertical-align:middle;*/
+	padding-top: 14px;
+	padding-left: 19px;
+	font-size:14px;
+	width: 131px;
+	height: 50px;
+	color: #ffffff;
+	font-weight:bold;
+}
+.mainNavText.selected{
+	color: #f16687;
+	font-weight:bold;
+	
+}
+
+.mainNavText.selected_alt{
+	color: #3b8fa6;
+	font-weight:bold;
+	
+}
+
+/*=========Grid View=========*/
+#gridView_wrapper{
+	width: 820px; 
+	height: 532px;
+	padding: 38px 0px 0;
+	position: absolute;
+	z-index:5;
+/*	-moz-box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+	-webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+	box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);*/
+}
+
+.gridViewUpBtn{
+	width: 30px;
+	height: 29px;
+	left: 785px;
+	top: 47px;
+	background-image: url(../assets/arrowup.png);
+	position: absolute;
+}
+
+.gridViewDownBtn{
+	width: 30px;
+	height: 29px;
+	left: 785px;
+	top: 475px;
+	background-image: url(../assets/arrowdown.png);
+	position: absolute;
+}
+
+.gridViewTitleBar{
+	width: 826px;
+	height: 40px;
+	left: -6px;
+	top: 0px;
+	background-image: url(../assets/topbar.png);
+	position: absolute;
+}
+.gridViewTitleText{
+	width: 80px;
+	height: 35px;
+	margin-left: 5px;
+	margin-right: 5px;
+	text-align: center;
+	line-height:100%;
+	font-size: 18px;
+	overflow: hidden;
+	color: #f16687; 
+	padding: 13px 15px 0;
+	font-weight:bold;
+}
+.gridViewItem{
+	margin-bottom:-50px;
+	margin-left:-40px;
+	width: 232px;
+	height: 265px;
+	float: left;
+}
+.gridViewItem.selected{
+	background-image: url(../assets/video_highlight.png);
+	color: #FFF000;
+}
+.gridViewImg{
+	width: 167px;
+	height: 167px;
+	margin: 32px 34px 0;
+	background-color: transprant;
+}
+.gridViewText{
+	width: 160px;
+	height: 40px;
+	margin-left: 35px;
+	text-align: center;
+	line-height:100%;
+	font-size: 14px;
+	overflow: hidden;
+	color: #3b8fa6; 
+}
+.gridViewText.selected{
+	color: #f16687;
+}
+
+/*=========Player=========*/
+#player_wrapper{
+	width: 275px;
+	height: 50px;
+	left: 685px;
+	top: 490px;
+	position: absolute;
+	background-color: #002D41;
+}
+#progressBar_wrapper{
+	height: 8px;
+	width: 275px;
+}
+.progressBar_played{
+	height: 8px;
+	/*width controlled by js*/
+	width: 0%;
+	top: -8px;
+	position: relative;
+	background-color: #FFF000;
+}
+.progressBar_total{
+	height: 8px;
+	width: 275px;
+	position: relative;
+	background-color: #666666;
+	opacity: 0.7;	
+}
+.nowPlayingArtist{
+	color: #FFF000;
+	margin-left: 15px;
+	margin-top: 5px;
+	width: 140px;
+	overflow: hidden;
+}
+.nowPlayingTrack{
+	color: #FFF000;
+	margin-left: 15px;	
+	width: 200px;
+	overflow: hidden;
+}
+#repeat_wrapper{
+	height: 42px;
+	width: 105px;
+	left: 170px;
+	top: -39px;
+	line-height: 42px;
+	position: relative;	
+}
+
+/*=========navi=========*/
+#navi
+{
+	position: absolute;
+	top: 505px;
+	height: 35px;
+	width: 100%;
+	z-index:11;
+    background-image: url("../assets/BgNavigator.png");
+    background-repeat:repeat-x;
+}
+
+#help_navi
+{
+    position:absolute;
+    left:60px; top:5px; 
+    width:900px; height:28px;
+}
+
+.style_navi {
+    bottom:4px;
+    height:20px;
+    font-size:20px;
+}
+
+.shadow{
+	top: 0;
+	width: 50px;
+	height: 1px;
+	position: absolute;
+	z-index: 9;
+	background: url(../assets/shadow.png);
+}
+.shadow.mainNav{
+	left: 130px;
+	height: 540px;
+}
+
+#noti_wrapper{
+	top: 0;
+	left: 0;
+	width: 960px;
+	height: 540px;
+	position: absolute;
+	z-index: 20;
+	background-color: #000000;
+	opacity: 0;
+}
+
+#noti_text{
+	text-align: center;
+	width: 960px;
+	height: 540px;
+	top: 255px;
+	position: absolute;
+	font-size:20px;
+	color: #ffffff;
+	font-weight:bold;
+}

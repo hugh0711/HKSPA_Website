@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Maji TV</title>
+<link type="text/css" rel="stylesheet" href="css/styles.css" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="javascript/keycode.js"></script>
+<!-- encode -->
+<script type="text/javascript" src="javascript/encode/crypto-sha1-hmac.js"></script>
+<script type="text/javascript" src="javascript/encode/aes-min.js"></script>
+<script type="text/javascript" src="javascript/encode/blockmodes-min.js"></script>
+
+		
+<script type="text/javascript" src="javascript/json/json2.js"></script>
+<!-- Widget code -->
+<script type="text/javascript" src="javascript/Server.js"></script>
+<script type="text/javascript" src="javascript/Data.js"></script>
+<script type="text/javascript" src="javascript/Display.js"></script>
+<script type="text/javascript" src="javascript/main.js"></script>
+
+<!-- Video code -->
+<script type="text/javascript" src="Player/Player.js"></script>
+<script type="text/javascript" src="Player/PlayerDisplay.js"></script>
+<script type="text/javascript" src="Player/Audio.js"></script>
+<!--
+<object id="pluginPlayer" border=0 classid="clsid:SAMSUNG-INFOLINK-PLAYER" width="0px" height="0 px"></object>
+<object id="pluginAudio"  border=0 classid="clsid:SAMSUNG-INFOLINK-AUDIO" width="0px" height="0 px"></object>
+<object id="pluginTVMW" border=0 classid="clsid:SAMSUNG-INFOLINK-TVMW" width="0px" height="0 px"></object>
+<object id="pluginObjectScreen3D" classid="clsid:SAMSUNG-INFOLINK-SCREEN" style="opacity:0.0;background-color:#000000;width:0px;height:0px;"></object>
+-->
+
+<object id="pluginPlayer" type="video/mp4" data="" width="1280" height="720" drm_type="wm-drm" mode3D="off"></object>
+
+
+<object type="application/x-netcast-info" id="device"></object>
+
+</head>
+<body onload="Main.onLoad();" onunload="Main.onUnload();" onkeydown="Main.MainKeyHandler(event);" >
+
+	  <div id="noti_wrapper">
+		<div id="noti_text">影片推介</div>
+		
+	</div>
+	<div id="screen_wrapper">
+		
+		<!--LOGO-->
+		<div id="logo_wrapper" ></div>
+		<!--END LOGO-->
+		
+		<!--MAIN NAVIGATION-->
+		<div id="mainNav_wrapper">
+			<div id="mainNavItem0" class="mainNav selected">
+				<div id="mainNavItemText0" class="mainNavText selected_alt" onmouseover="APICALL(0);">影片推介</div>
+			</div>
+			<div id="mainNavItem1" class="mainNav alt" >
+				<div id="mainNavItemText1" class="mainNavText"  onmouseover="APICALL(1);" >最新消息</div>
+			</div>
+			<div id="mainNavItem2" class="mainNav" > 
+				<div id="mainNavItemText2" class="mainNavText" onmouseover="APICALL(2);">瀏覽頻道</div>
+			</div>
+			<div id="mainNavItem3" class="mainNav">
+				<div id="mainNavItemText3" class="mainNavText" onmouseover="APICALL(3);">我的資訊</div>
+			</div>
+			<div id="mainNavItem4" class="mainNav" >
+				<div id="mainNavItemText4" class="mainNavText" onmouseover="APICALL(4);">我的影片</div>
+			</div>
+			<div id="mainNavItem5" class="mainNav" >
+				<div id="mainNavItemText5" class="mainNavText" onmouseover="APICALL(5);">關於Maji</div>
+			</div>	
+		</div>
+		<div id="shadow" class="shadow mainNav"></div>
+		<!--END MAIN NAVIGATION-->
+
+		<div id="pageInfo_wrapper">
+			<div id="pageInfo_text"></div>
+			<div id="pageInfo_text2"></div>
+		</div>
+		
+		<div id="des_wrapper">
+		<div id="des_page">
+			<div id="des_title"></div>
+			<div id="des_subtitle"></div>
+			<div id="des_content"></div>
+		</div>
+		</div>
+
+		<div id="comment_wrapper">
+			<div id="comment_title">Comments</div>
+			<div id="comment_item" class="comment_item">
+				<div id="comment_content" class="comment_content_text"></div>
+				<div id="comment_user" class="comment_user_text"></div>
+				<div id="comment_date" class="comment_date_text"></div>
+			</div>
+			
+		
+		</div>
+		<div id="collection_wrapper">
+			<div id="collection_title">Collection</div>
+			<div id="collection_item" class="collection_item" style="top:0;"></div>	
+		</div>
+		<!--GRID VIEW-->
+		<div id="gridView_wrapper" style="left:140px;top: 0;opacity:1">
+			
+			<div id="gridViewUpBtn" class="gridViewUpBtn"></div>
+			<div id="gridViewDownBtn" class="gridViewDownBtn"></div>
+			<div class="gridViewTitleBar">
+			<div id="gridViewTitleText" class="gridViewTitleText"></div>
+			</div>
+			
+		</div>
+		
+		<!--END GRID VIEW-->	
+	
+		<!--dummy PLAYER-->
+		<div id="player_wrapper" style="opacity:0">
+			<div id="progressBar_wrapper">
+				<div class="progressBar_total"></div>
+				<div id="progressBar" class="progressBar_played"></div>							
+			</div>
+			<div id="nowPlayingArtist" class="nowPlayingArtist">Artist</div>
+			<div id="nowPlayingTrack" class="nowPlayingTrack">Title</div>
+			<div id="repeat_wrapper">
+				<div class="controlBtn red"></div>
+				<div id="controlBtnText" class="controlBtnText">NORMAL</div>
+			</div>
+		</div>
+		<!--END dummy PLAYER-->
+		
+
+		
+
+	</div>
+			<!--navi-->
+		<div id="naviUnder"></div>	
+		<div id="navi">
+		
+		<!--
+			<div id="help_navi">
+			
+				<img id="btnPlayImage" src="assets/navi/play.png"></img>
+				<img id="btnStopImage" src="assets/navi/stop.png"></img>
+				<img id="btnPauseImage" src="assets/navi/pause.png"></img>
+				<img id="btnRewindImage" src="assets/navi/rewind.png"></img>
+				<img id="btnForwardImage" src="assets/navi/forward.png"></img>&nbsp<a class="style_navi">Video Control</a>&nbsp&nbsp
+				<img id="btnEnterImage" src="assets/navi/enter.png"></img>&nbsp<a class="style_navi">Enter</a>&nbsp&nbsp
+				<img id="btnReturnImage" src="assets/navi/return.png"></img>&nbsp<a class="style_navi">Return</a>&nbsp&nbsp
+				<img id="btnRedImage" src="assets/navi/red.png"></img>&nbsp<a class="style_navi">Red</a>&nbsp&nbsp
+                <img id="btnBlueImage" src="assets/navi/blue.png"></img>&nbsp<a class="style_navi">Blue</a>&nbsp&nbsp
+				<img id="btnGreenImage" src="assets/navi/green.png"></img>&nbsp<a class="style_navi">Green</a>&nbsp&nbsp
+                <img id="btnYellowImage" src="assets/navi/yellow.png"></img>&nbsp<a class="style_navi">Yellow</a>
+			
+			</div>
+		-->	
+		<div id="navi_leftsection">
+				<img id="btnReturnImage" src="assets/navi/return.png"></img>&nbsp;<a class="style_navi">離開</a>&nbsp;&nbsp;
+				<img id="btnEnterImage" src="assets/navi/enter.png"></img>&nbsp;<a class="style_navi">進入</a>&nbsp;&nbsp;
+				<img id="btnRedImage" src="assets/navi/red.png" onmousedown="logoutandin();"></img>&nbsp;<a class="style_navi" onmousedown="logoutandin();">登入</a>&nbsp;&nbsp;
+		</div>	
+		
+			<div id="navi_leftsection">
+				<img id="btnReturnImage" src="assets/navi/return.png"></img>&nbsp;<a class="style_navi">離開</a>&nbsp;&nbsp;
+				<img id="btnEnterImage" src="assets/navi/enter.png"></img>&nbsp;<a class="style_navi">進入</a>&nbsp;&nbsp;
+				<img id="btnRedImage" src="assets/navi/red.png" onmousedown="logoutandin();"></img>&nbsp;<a class="style_navi" onmousedown="logoutandin();">登入</a>&nbsp;&nbsp;
+			</div>	
+			<div id="navi_feature">
+				<img id="btnEnterImage" src="assets/navi/enter.png"></img>&nbsp;<a class="style_navi">進入</a>&nbsp;&nbsp;
+				<img id="btnRedImage" src="assets/navi/red.png" onmousedown="logoutandin();"></img>&nbsp;<a class="style_navi" onmousedown="logoutandin();">登入</a>&nbsp;&nbsp;
+				<img id="btnGreenImage" src="assets/navi/green.png" onmousedown="mouseGetDesc();" ></img>&nbsp;<a class="style_navi">簡介</a>&nbsp;&nbsp;
+				<img id="btnYellowImage" src="assets/navi/yellow.png" onmousedown="mouseGetComments();"></img>&nbsp;<a class="style_navi" onmousedown="mouseGetComments();">觀看評論</a>&nbsp;&nbsp;
+				<img id="btnBlueImage" src="assets/navi/blue.png"></img>&nbsp;<a class="style_navi" onmousedown="FeatureShowNotePage();">觀看資訊</a>&nbsp;&nbsp;
+			</div>	
+			<div id="navi_news">
+				<img id="btnEnterImage" src="assets/navi/enter.png"></img>&nbsp;<a class="style_navi">觀看消息</a>&nbsp;&nbsp;
+				<img id="btnRedImage" src="assets/navi/red.png"  onmousedown="logoutandin();"></img>&nbsp;<a class="style_navi" onmousedown="logoutandin();">登入</a>&nbsp;&nbsp;
+			</div>	
+			<div id="navi_channel">
+				<img id="btnEnterImage" src="assets/navi/enter.png"></img>&nbsp;<a class="style_navi">進入</a>&nbsp;&nbsp;
+				<img id="btnRedImage" src="assets/navi/red.png" onmousedown="logoutandin();"></img>&nbsp;<a class="style_navi" onmousedown="logoutandin();">登入</a>&nbsp;&nbsp;
+				<img id="btnGreenImage" src="assets/navi/green.png" onmousedown="mouseGetDesc();"></img>&nbsp;<a class="style_navi" onmousedown="mouseGetDesc();">簡介</a>&nbsp;&nbsp;
+				<!--<img id="btnYellowImage" src="assets/navi/yellow.png"></img>&nbsp;<a class="style_navi">觀看評論</a>&nbsp;&nbsp;-->
+			</div>	
+			
+			<div id="navi_bookmark">
+				<img id="btnEnterImage" src="assets/navi/enter.png"></img>&nbsp;<a class="style_navi">進入</a>&nbsp;&nbsp;
+				<img id="btnRedImage" src="assets/navi/red.png" onmousedown="logoutandin();"></img>&nbsp;<a class="style_navi">登入</a>&nbsp;&nbsp;
+				<img id="btnGreenImage" src="assets/navi/green.png" onmousedown="mouseGetDesc();"></img>&nbsp;<a class="style_navi" onmousedown="mouseGetDesc();">簡介</a>&nbsp;&nbsp;
+				<!--<img id="btnYellowImage" src="assets/navi/yellow.png"></img>&nbsp;<a class="style_navi">觀看評論</a>&nbsp;&nbsp;-->
+			</div>	
+			
+			<div id="navi_collection">
+				<img id="btnEnterImage" src="assets/navi/enter.png"></img>&nbsp;<a class="style_navi">進入</a>&nbsp;&nbsp;
+				<img id="btnRedImage" src="assets/navi/red.png" onmousedown="logoutandin();"></img>&nbsp;<a class="style_navi">登入</a>&nbsp;&nbsp;
+				<img id="btnGreenImage" src="assets/navi/green.png" onmousedown="mouseGetDesc();"></img>&nbsp;<a class="style_navi" onmousedown="mouseGetDesc();">簡介</a>&nbsp;&nbsp;
+				<!--<img id="btnYellowImage" src="assets/navi/yellow.png"></img>&nbsp;<a class="style_navi">觀看評論</a>&nbsp;&nbsp;-->
+			</div>	
+			
+			<div id="navi_programme">
+				<img id="btnReturnImage" src="assets/navi/return.png"></img>&nbsp;<a class="style_navi">返回</a>&nbsp;&nbsp;
+				<img id="btnEnterImage" src="assets/navi/enter.png"></img>&nbsp;<a class="style_navi">進入</a>&nbsp;&nbsp;
+				<img id="btnRedImage" src="assets/navi/red.png" onmousedown="logoutandin();"></img>&nbsp;<a class="style_navi">登入</a>&nbsp;&nbsp;
+				<img id="btnGreenImage" src="assets/navi/green.png" onmousedown="mouseGetDesc();"></img>&nbsp;<a class="style_navi" onmousedown="mouseGetDesc();">簡介</a>&nbsp;&nbsp;
+				<!--<img id="btnYellowImage" src="assets/navi/yellow.png"></img>&nbsp;<a class="style_navi">觀看評論</a>&nbsp;&nbsp;-->
+			</div>	
+			
+			<div id="navi_episode">
+				<img id="btnReturnImage" src="assets/navi/return.png"></img>&nbsp;<a class="style_navi">返回</a>&nbsp;&nbsp;
+				<img id="btnEnterImage" src="assets/navi/enter.png"></img>&nbsp;<a class="style_navi">進入</a>&nbsp;&nbsp;
+				<img id="btnRedImage" src="assets/navi/red.png" onmousedown="logoutandin();"></img>&nbsp;<a class="style_navi">登入</a>&nbsp;&nbsp;
+				<img id="btnGreenImage" src="assets/navi/green.png" onmousedown="mouseGetDesc();"></img>&nbsp;<a class="style_navi" onmousedown="mouseGetDesc();">簡介</a>&nbsp;&nbsp;
+				<img id="btnYellowImage" src="assets/navi/yellow.png" onmousedown="mouseGetComments();"></img>&nbsp;<a class="style_navi">觀看評論</a>&nbsp;&nbsp;
+				<img id="btnBlueImage" src="assets/navi/blue.png" onmousedown="EpsoideShowNotePage();"></img>&nbsp;<a class="style_navi" onmousedown="EpsoideShowNotePage();">觀看資訊</a>&nbsp;&nbsp;
+			</div>	
+			
+			<div id="video_panel_play">
+				<img id="btnReturnImage" src="assets/navi/return.png"></img>&nbsp;<a class="style_navi">返回</a>&nbsp;&nbsp;
+				<img id="btnPlayImage" src="assets/navi/play.png"></img>&nbsp;<a class="style_navi">播放</a>&nbsp;&nbsp;
+				<img id="btnRWImage" src="assets/navi/rewind.png"></img>&nbsp;<a class="style_navi">快退</a>&nbsp;&nbsp;
+				<img id="btnFFImage" src="assets/navi/forward.png"></img>&nbsp;<a class="style_navi">快進</a>&nbsp;&nbsp;
+				<a id="playTimeTotal" class="playTimeTotalStyle" style="float:right;top:7px;font-size:25px;padding-right:40px">/ 00:00:00</a>
+				<a id="playTimeCur" class="playTimeCurStyle" style="float:right;top:7px;font-size:25px;padding-right:8px">00:00:00</a>
+			</div>	
+			
+			<div id="video_panel_stop" >
+				<img id="btnReturnImage" src="assets/navi/return.png"></img>&nbsp;<a class="style_navi">返回</a>&nbsp;&nbsp;
+				<img id="btnPauseImage" src="assets/navi/pause.png"></img>&nbsp;<a class="style_navi">暫停</a>&nbsp;&nbsp;
+				<img id="btnRWImage" src="assets/navi/rewind.png"></img>&nbsp;<a class="style_navi">快退</a>&nbsp;&nbsp;
+				<img id="btnFFImage" src="assets/navi/forward.png"></img>&nbsp;<a class="style_navi">快進</a>&nbsp;&nbsp;
+				<a id="playTimeTotal" class="playTimeTotalStyle" style="float:right;top:7px;font-size:25px;padding-right:40px">/ 00:00:00</a>
+				<a id="playTimeCur" class="playTimeCurStyle" style="float:right;top:7px;font-size:25px;padding-right:8px">00:00:00</a>
+				
+			</div>	
+			
+			<div id="navi_feature_logout">
+				<img id="btnEnterImage" src="assets/navi/enter.png"></img>&nbsp;<a class="style_navi">進入</a>&nbsp;&nbsp;
+				<img id="btnRedImage" src="assets/navi/red.png" onmousedown="logoutandin();"></img>&nbsp;<a class="style_navi">登出</a>&nbsp;&nbsp;
+				<img id="btnGreenImage" src="assets/navi/green.png" onmousedown="mouseGetDesc();" ></img>&nbsp;<a class="style_navi">簡介</a>&nbsp;&nbsp;
+				<img id="btnYellowImage" src="assets/navi/yellow.png" onmousedown="mouseGetComments();"></img>&nbsp;<a class="style_navi">觀看評論</a>&nbsp;&nbsp;
+				<img id="btnBlueImage" src="assets/navi/blue.png" onmousedown="FeatureShowNotePage();"></img>&nbsp;<a class="style_navi" onmousedown="FeatureShowNotePage();">觀看資訊</a>&nbsp;&nbsp;
+			</div>	
+			<div id="navi_news_logout">
+				<img id="btnEnterImage" src="assets/navi/enter.png"></img>&nbsp;<a class="style_navi">觀看消息</a>&nbsp;&nbsp;
+				<img id="btnRedImage" src="assets/navi/red.png" onmousedown="logoutandin();"></img>&nbsp;<a class="style_navi">登出</a>&nbsp;&nbsp;
+			</div>	
+			<div id="navi_channel_logout">
+				<img id="btnEnterImage" src="assets/navi/enter.png"></img>&nbsp;<a class="style_navi">進入</a>&nbsp;&nbsp;
+				<img id="btnRedImage" src="assets/navi/red.png" onmousedown="logoutandin();"></img>&nbsp;<a class="style_navi">登出</a>&nbsp;&nbsp;
+				<img id="btnGreenImage" src="assets/navi/green.png" onmousedown="mouseGetDesc();"></img>&nbsp;<a class="style_navi">簡介</a>&nbsp;&nbsp;
+				<!--<img id="btnYellowImage" src="assets/navi/yellow.png"></img>&nbsp;<a class="style_navi">觀看評論</a>&nbsp;&nbsp;-->
+			</div>	
+			
+			<div id="navi_bookmark_logout">
+				<img id="btnEnterImage" src="assets/navi/enter.png"></img>&nbsp;<a class="style_navi">進入</a>&nbsp;&nbsp;
+				<img id="btnRedImage" src="assets/navi/red.png" onmousedown="logoutandin();"></img>&nbsp;<a class="style_navi">登出</a>&nbsp;&nbsp;
+				<img id="btnGreenImage" src="assets/navi/green.png" onmousedown="mouseGetDesc();"></img>&nbsp;<a class="style_navi">簡介</a>&nbsp;&nbsp;
+				<!--<img id="btnYellowImage" src="assets/navi/yellow.png"></img>&nbsp;<a class="style_navi">觀看評論</a>&nbsp;&nbsp;-->
+				<img id="btnBlueImage" src="assets/navi/blue.png" onmousedown="mouseDelVideo();"></img>&nbsp;<a class="style_navi" onmousedown="mouseDelVideo();">移除影片</a>&nbsp;&nbsp;
+
+			</div>	
+			
+			<div id="navi_collection_logout">
+				<img id="btnEnterImage" src="assets/navi/enter.png"></img>&nbsp;<a class="style_navi">觀看資訊</a>&nbsp;&nbsp;
+				<img id="btnRedImage" src="assets/navi/red.png" onmousedown="logoutandin();"></img>&nbsp;<a class="style_navi">登出</a>&nbsp;&nbsp;
+				<img id="btnGreenImage" src="assets/navi/green.png" onmousedown="mouseGetDesc();"></img>&nbsp;<a class="style_navi" onmousedown="mouseGetDesc();">簡介</a>&nbsp;&nbsp;
+				<img id="btnYellowImage" src="assets/navi/yellow.png" onmousedown="mouseGetComments();"></img>&nbsp;<a class="style_navi">觀看評論</a>&nbsp;&nbsp;
+				<img id="btnBlueImage" src="assets/navi/blue.png"  onmousedown="mouseDelCollect();"></img>&nbsp;<a class="style_navi" onmousedown="mouseDelCollect();">移除資訊</a>&nbsp;&nbsp;
+			</div>	
+			
+			<div id="navi_programme_logout">
+				<img id="btnReturnImage" src="assets/navi/return.png"></img>&nbsp;<a class="style_navi">返回</a>&nbsp;&nbsp;
+				<img id="btnEnterImage" src="assets/navi/enter.png"></img>&nbsp;<a class="style_navi">進入</a>&nbsp;&nbsp;
+				<img id="btnRedImage" src="assets/navi/red.png" onmousedown="logoutandin();"></img>&nbsp;<a class="style_navi">登出</a>&nbsp;&nbsp;
+				<img id="btnGreenImage" src="assets/navi/green.png" onmousedown="mouseGetDesc();"></img>&nbsp;<a class="style_navi">簡介</a>&nbsp;&nbsp;
+				<!--<img id="btnYellowImage" src="assets/navi/yellow.png"></img>&nbsp;<a class="style_navi">觀看評論</a>&nbsp;&nbsp;-->
+			</div>	
+			
+			<div id="navi_episode_logout">
+				<img id="btnReturnImage" src="assets/navi/return.png"></img>&nbsp;<a class="style_navi">返回</a>&nbsp;&nbsp;
+				<img id="btnEnterImage" src="assets/navi/enter.png"></img>&nbsp;<a class="style_navi">進入</a>&nbsp;&nbsp;
+				<img id="btnRedImage" src="assets/navi/red.png" onmousedown="logoutandin();"></img>&nbsp;<a class="style_navi">登出</a>&nbsp;&nbsp;
+				<img id="btnGreenImage" src="assets/navi/green.png" onmousedown="mouseGetDesc();"></img>&nbsp;<a class="style_navi">簡介</a>&nbsp;&nbsp;
+				<img id="btnYellowImage" src="assets/navi/yellow.png" onmousedown="mouseGetComments();"></img>&nbsp;<a class="style_navi">觀看評論</a>&nbsp;&nbsp;
+				<img id="btnBlueImage" src="assets/navi/blue.png" onmousedown="EpisodeShowNotePage();"></img>&nbsp;<a class="style_navi">觀看資訊</a>&nbsp;&nbsp;
+			</div>	
+			
+			<div id="navi_left_section">
+				<img id="btnReturnImage" src="assets/navi/return.png"></img>&nbsp;<a class="style_navi">離開</a>&nbsp;&nbsp;
+				<img id="btnEnterImage" src="assets/navi/enter.png"></img>&nbsp;<a class="style_navi">進入</a>&nbsp;&nbsp;
+				<img id="btnGreenImage" src="assets/navi/green.png" onmousedown="mouseGetDesc();"></img>&nbsp;<a class="style_navi">簡介</a>&nbsp;&nbsp;
+				<img id="btnYellowImage" src="assets/navi/yellow.png" onmousedown="mouseGetComments();"></img>&nbsp;<a class="style_navi">觀看評論</a>&nbsp;&nbsp;
+			</div>	
+			
+			<div id="navi_left_section_logout">
+				<img id="btnEnterImage" src="assets/navi/enter.png"></img>&nbsp;<a class="style_navi">進入</a>&nbsp;&nbsp;
+				<img id="btnReturnImage" src="assets/navi/return.png"></img>&nbsp;<a class="style_navi">返回</a>&nbsp;&nbsp;
+				
+			</div>	
+			
+			<div id="video_panel_play_logout">
+				<img id="btnReturnImage" src="assets/navi/return.png"></img>&nbsp;<a class="style_navi">返回</a>&nbsp;&nbsp;
+				<img id="btnPlayImage" src="assets/navi/play.png"></img>&nbsp;<a class="style_navi">播放</a>&nbsp;&nbsp;
+				<img id="btnRWImage" src="assets/navi/rewind.png"></img>&nbsp;<a class="style_navi">快退</a>&nbsp;&nbsp;
+				<img id="btnFFImage" src="assets/navi/forward.png"></img>&nbsp;<a class="style_navi">快進</a>&nbsp;&nbsp;
+				<!--<img id="btnGreenImage" src="assets/navi/green.png"></img>&nbsp;<a class="style_navi">新增資訊</a>&nbsp;&nbsp;-->
+				<img id="btnYellowImage" src="assets/navi/yellow.png"></img>&nbsp;<a class="style_navi">新增影片</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a id="playTimeTotal" class="playTimeTotalStyle" style="float:right;top:7px;font-size:25px;padding-right:40px">/ 00:00:00</a>
+				<a id="playTimeCur" class="playTimeCurStyle" style="float:right;top:7px;font-size:25px;padding-right:8px">00:00:00</a>
+				
+			</div>	
+			
+			<div id="video_panel_stop_logout">
+				<img id="btnReturnImage" src="assets/navi/return.png"></img>&nbsp;<a class="style_navi">返回</a>&nbsp;&nbsp;
+				<img id="btnPauseImage" src="assets/navi/pause.png"></img>&nbsp;<a class="style_navi">暫停</a>&nbsp;&nbsp;
+				<img id="btnRWImage" src="assets/navi/rewind.png"></img>&nbsp;<a class="style_navi">快退</a>&nbsp;&nbsp;
+				<img id="btnFFImage" src="assets/navi/forward.png"></img>&nbsp;<a class="style_navi">快進</a>&nbsp;&nbsp;
+				<!--<img id="btnGreenImage" src="assets/navi/green.png"></img>&nbsp;<a class="style_navi">新增資訊</a>&nbsp;&nbsp;-->
+				<img id="btnYellowImage" src="assets/navi/yellow.png"></img>&nbsp;<a class="style_navi">新增影片</a>&nbsp;&nbsp;
+				<a id="playTimeTotal" class="playTimeTotalStyle" style="float:right;top:7px;font-size:25px;padding-right:40px">/ 00:00:00</a>
+				<a id="playTimeCur" class="playTimeCurStyle" style="float:right;top:7px;font-size:25px;padding-right:8px">00:00:00</a>
+			</div>
+			<div id="navi_leftsection_logout">
+				<img id="btnEnterImage" src="assets/navi/enter.png"></img>&nbsp;<a class="style_navi">進入</a>&nbsp;&nbsp;
+				<img id="btnRedImage" src="assets/navi/red.png" onmousedown="logoutandin();"></img>&nbsp;<a class="style_navi">登出</a>&nbsp;&nbsp;
+			</div>
+			
+			<div id="navi_comments">
+				<img id="btnReturnImage" src="assets/navi/return.png" onmousedown="mousehideNotePage();"></img>&nbsp;<a class="style_navi"  onmousedown="mousehideNotePage();">返回</a>&nbsp;&nbsp;
+			</div>
+			<div id="navi_collection2">
+				<img id="btnReturnImage" src="assets/navi/return.png" onmousedown="mousehideNotePage();"></img>&nbsp;<a class="style_navi"  onmousedown="mousehideNotePage();">返回</a>&nbsp;&nbsp;
+			</div>
+			<div id="navi_collection2_logout">
+				<img id="btnReturnImage" src="assets/navi/return.png" onmousedown="mousehideNotePage();"></img>&nbsp;<a class="style_navi"  onmousedown="mousehideNotePage();">返回</a>&nbsp;&nbsp;
+				<img id="btnGreenImage" src="assets/navi/green.png"></img>&nbsp;<a class="style_navi">新增資訊</a>&nbsp;&nbsp;
+			</div>	
+		</div>	
+		<!--END navi-->
+		<div id="loadingIcon" class="loadingIconStyle">
+			<img alt="" src="assets/LOADING_ANI.GIF">
+		</div>
+</body>
+</html>

@@ -1,0 +1,498 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link href="../css/lgeKeyboard.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="../js/keycode.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+
+<script type="text/javascript" src="../js/keyboard.js"></script>
+<script type="text/javascript" src="../../javascript/Display.js"></script>
+<script type="text/javascript">
+txtid="wkk_tx";
+</script>
+</head>
+
+<form name="form2"> 
+	<input type="hidden" name="checkedLang"  value=" "/>
+	<input type="hidden" name="langToggleIdx"  value=" "/>
+	<input type="hidden" name="layout"  value=" "/>	
+	<input type="hidden" name="langName"  value=" "/>	
+	<input type="hidden" name="cookieP1KeyId"  value=" "/>
+	<input type="hidden" name="cookieP2KeyId"  value=" "/>
+</form>
+<object id="autoLogintxt" email="" password=""></object>
+<body style="overflow-x:hidden;  overflow-y:hidden;" onload="Main.onLoad();keyboardInit(0);" onunload="Main.onUnload();keyboardUnload()" onkeydown="processKeyDown(event);" onselectstart="return false;">
+
+	<div id="noti_wrapper">
+		<div id="noti_text"></div>
+	</div>
+    </head>
+
+<div id = "langDiv">	
+	<script type="text/javascript" src="../js/lang/english.js"></script>	
+</div>
+
+<!-- title area --> 
+
+<!-- end of title area -->
+
+<!-- end of tab area -->
+	<div id="screen_wrapper"></div>
+<div id="logo_wrapper"></div>
+<div id="web_keyboard" class="keyboardArea" top:129px;" >
+
+
+	
+
+	<div id="mainNav_wrapper">
+	<div id="mainNavItemText0" class="mainNavText selected_alt" 
+			style="position: absolute; top : 0px; left: 80px;">登入</div>
+		<div id="wkk_id"  class="mainNavText selected_alt"
+			style="position: absolute; top : 20px; left: 230px;">帳戶</div>
+		<div id="wkk_password"  class="mainNavText selected_alt"
+			style="position: absolute; top : 115px; left: 230px;">密碼</div>
+	</div>
+
+	<!--add by eunmi-->
+	<input id="hFocus"  type="text" value=""  class="textBarStyle2" style="position: absolute; top:65px; left: 230px;"> 
+	<!--end -->		
+	<div style="position: absolute; top: 65px; left: 230px;">
+		<input id="wkk_tx" type="text" value=""  class="textBarStyle2" onkeyup="setInputCaret();"
+			onkeypress="setInputCaret();" onkeydown="setInputCaret();" onmouseup="setInputCaretPos();"
+			onmousedown="txtid='wkk_tx'; doHighlight('wkk_tx'); cancelHighlight('wkk_tx2');setInputCaretPos();" > 				
+	</div>
+	
+	<div style="position: absolute; top: 162px; left: 230px;">
+		<input id="wkk_tx2" type="password" value=""  class="textBarStyle2" onkeyup="setInputCaret();"
+			onkeypress="setInputCaret();" onkeydown="setInputCaret();" onmouseup="setInputCaretPos();" 
+			onmousedown="txtid='wkk_tx2'; doHighlight('wkk_tx2');cancelHighlight('wkk_tx');setInputCaretPos();" > 				
+	</div>
+
+	<!--border:0px; background : url('../image/basic/KEYBOARD_BG.png')">
+	<div id="wkk_desc" class="descStyle" style="position: absolute; top: 230px; left: 44px;">&nbsp;</div> -->
+
+	<!-- ok button -->
+	<div id="wkk_key_58"
+		class="buttonStyle" style="position: absolute; top: 320px; left: 250px; "
+		onmouseover="doHighlight('wkk_key_58')" onmouseout="cancelHighlight('wkk_key_58')" 
+		onmousedown="execKey('wkk_key_58')">&nbsp;
+	</div>
+	
+	<!-- cancel button -->
+	<div id="wkk_key_59"
+		class="buttonStyle" style="position: absolute; top: 390px; left: 250px;"
+		onmouseover="doHighlight('wkk_key_59')" onmouseout="cancelHighlight('wkk_key_59')" 
+		onmousedown="execKey('wkk_key_59')">&nbsp;
+	</div>
+	
+		<!-- key -->
+	<div id="web_keyboard_keys" style="width: 662px; height: 414px; position: absolute; top: 35px; left: 558px; background-color: rgb(0,0,0) ">
+			<div class="oneRowDivStyle" style="top: 10px;" id="wkk_key_0">
+				<div id="wkk_key_00"  
+					class="btnNormal" style="left: 13px;"
+					onmouseover="doHighlight('wkk_key_00')">&nbsp;
+				</div>
+				<div id="wkk_key_01"
+					class="btnNormal" style="left: 93px;"
+					onmouseover="doHighlight('wkk_key_01')">&nbsp;
+				</div>
+				<div id="wkk_key_02"
+					class="btnNormal" style="left: 173px;"
+					onmouseover="doHighlight('wkk_key_02')">&nbsp;
+				</div>
+				<div id="wkk_key_03"
+					class="btnNormal" style="left: 253px;"
+					onmouseover="doHighlight('wkk_key_03')">&nbsp;
+				</div>
+				<div id="wkk_key_04"
+					class="btnNormal" style="left: 333px;"
+					onmouseover="doHighlight('wkk_key_04')">&nbsp;
+				</div>
+				<div id="wkk_key_05"
+					class="btnNormalNum" style="left: 413px;"
+					onmouseover="doHighlight('wkk_key_05')">&nbsp;
+				</div>
+				<div id="wkk_key_06"
+					class="btnNormalNum" style="left: 493px;"
+					onmouseover="doHighlight('wkk_key_06')">&nbsp;
+				</div>
+				<div id="wkk_key_07"
+					class="btnNormalNum" style="left: 573px;"
+					onmouseover="doHighlight('wkk_key_07')">&nbsp;
+				</div>
+			</div>
+			<div class="oneRowDivStyle" style="top: 66px;" id="wkk_key_1">
+				<div id="wkk_key_10"
+					class="btnNormal" style="left: 13px;"
+					onmouseover="doHighlight('wkk_key_10')">&nbsp;
+				</div>
+				<div id="wkk_key_11"
+					class="btnNormal" style="left: 93px;"
+					onmouseover="doHighlight('wkk_key_11')">&nbsp;
+				</div>
+				<div id="wkk_key_12"
+					class="btnNormal" style="left: 173px;"
+					onmouseover="doHighlight('wkk_key_12')">&nbsp;
+				</div>
+				<div id="wkk_key_13"
+					class="btnNormal" style="left: 253px;"
+					onmouseover="doHighlight('wkk_key_13')">&nbsp;
+				</div>
+				<div id="wkk_key_14"
+					class="btnNormal" style="left: 333px;"
+					onmouseover="doHighlight('wkk_key_14')">&nbsp;
+				</div>
+				<div id="wkk_key_15"
+					class="btnNormalNum" style="left: 413px;"
+					onmouseover="doHighlight('wkk_key_15')">&nbsp;
+				</div>
+				<div id="wkk_key_16"
+					class="btnNormalNum" style="left: 493px;"
+					onmouseover="doHighlight('wkk_key_16')">&nbsp;
+				</div>
+				<div id="wkk_key_17"
+					class="btnNormalNum" style="left: 573px;"
+					onmouseover="doHighlight('wkk_key_17')">&nbsp;
+				</div>
+			</div>			
+		
+			<div class="oneRowDivStyle" style="top: 122px;" id="wkk_key_2">
+				<div id="wkk_key_20"
+					class="btnNormal" style="left: 13px;"
+					onmouseover="doHighlight('wkk_key_20')">&nbsp;
+				</div>
+				<div id="wkk_key_21"
+					class="btnNormal" style="left: 93px;"
+					onmouseover="doHighlight('wkk_key_21')">&nbsp;
+				</div>
+				<div id="wkk_key_22"
+					class="btnNormal" style="left: 173px;"
+					onmouseover="doHighlight('wkk_key_22')">&nbsp;
+				</div>
+				<div id="wkk_key_23"
+					class="btnNormal" style="left: 253px;"
+					onmouseover="doHighlight('wkk_key_23')">&nbsp;
+				</div>
+				<div id="wkk_key_24"
+					class="btnNormal" style="left: 333px;"
+					onmouseover="doHighlight('wkk_key_24')">&nbsp;
+				</div>
+				<div id="wkk_key_25"
+					class="btnNormalNum" style="left: 413px;"
+					onmouseover="doHighlight('wkk_key_25')">&nbsp;
+				</div>
+				<div id="wkk_key_26"
+					class="btnNormalNum" style="left: 493px;"
+					onmouseover="doHighlight('wkk_key_26')">&nbsp;
+				</div>
+				<div id="wkk_key_27"
+					class="btnNormalNum" style="left: 573px;"
+					onmouseover="doHighlight('wkk_key_27')">&nbsp;
+				</div>
+			</div>			
+		
+		
+			<div class="oneRowDivStyle" style="top: 178px;" id="wkk_key_3">
+				<div id="wkk_key_30"
+					class="btnNormal" style="left: 13px;"
+					onmouseover="doHighlight('wkk_key_30')">&nbsp;
+				</div>
+				<div id="wkk_key_31"
+					class="btnNormal" style="left: 93px;"
+					onmouseover="doHighlight('wkk_key_31')">&nbsp;
+				</div>
+				<div id="wkk_key_32"
+					class="btnNormal" style="left: 173px;"
+					onmouseover="doHighlight('wkk_key_32')">&nbsp;
+				</div>
+				<div id="wkk_key_33"
+					class="btnNormal" style="left: 253px;"
+					onmouseover="doHighlight('wkk_key_33')">&nbsp;
+				</div>
+				<div id="wkk_key_34"
+					class="btnNormal" style="left: 333px;"
+					onmouseover="doHighlight('wkk_key_34')">&nbsp;
+				</div>
+				<div id="wkk_key_35"
+					class="btnNormalNum" style="left: 413px;"
+					onmouseover="doHighlight('wkk_key_35')">&nbsp;
+				</div>
+				<div id="wkk_key_36"
+					class="btnNormalNum" style="left: 493px;"
+					onmouseover="doHighlight('wkk_key_36')">&nbsp;
+				</div>
+				<div id="wkk_key_37"
+					class="btnNormalNum"  style="left: 573px;"
+					onmouseover="doHighlight('wkk_key_37')">&nbsp;
+				</div>
+			</div>
+			
+			<div class="oneRowDivStyle" style="top: 234px;" id="wkk_key_4">
+				<div id="wkk_key_40"
+					class="btnNormal" style="left: 13px;"
+					onmouseover="doHighlight('wkk_key_40')">&nbsp;
+				</div>
+				<div id="wkk_key_41"
+					class="btnNormal" style="left: 93px;"
+					onmouseover="doHighlight('wkk_key_41')">&nbsp;
+				</div>
+				<div id="wkk_key_42" 
+					class="btnNormal" style="left: 173px;"
+					onmouseover="doHighlight('wkk_key_42')">&nbsp;
+				</div>
+				<div id="wkk_key_43"
+					class="btnNormal" style="left: 253px;"
+					onmouseover="doHighlight('wkk_key_43')">&nbsp;
+				</div>
+				<div id="wkk_key_44"
+					class="btnNormal" style="left: 333px;"
+					onmouseover="doHighlight('wkk_key_44')">&nbsp;
+				</div>
+				<div id="wkk_key_45"
+					class="btnNormal" style="left: 413px;"
+					onmouseover="doHighlight('wkk_key_45')">&nbsp;
+				</div>
+				<div id="wkk_key_46"
+					class="btnNormalNum" style="left: 493px;"
+					onmouseover="doHighlight('wkk_key_46')" >&nbsp;
+				</div>
+				<div id="wkk_key_47"
+					class="btnNormalNum" style="left: 573px;"
+					onmouseover="doHighlight('wkk_key_47')">&nbsp;
+				</div>
+			</div>		
+			
+			
+	<!-- modify -->	 
+			<div class="oneRowDivStyle" style="top: 290px;" id="wkk_key_5">
+				<div id="wkk_key_50" class="btnSmallNum" style="left: 13px;"
+						onmouseover="doHighlight('wkk_key_50')"	>	&nbsp;
+		 			 </div>
+				<div id="wkk_key_51" class="btnSmallNum" style="left: 93px;" 
+						onmouseover="doHighlight('wkk_key_51')" >&nbsp;						
+					</div>
+				<div id="wkk_key_52" class="btnSmallNum" style="left: 173px;"
+						onmouseover="doHighlight('wkk_key_52')" >&nbsp;						
+					</div>
+				<div id="wkk_key_53" class="btnNormalNum" style="left: 253px;"
+						onmouseover="doHighlight('wkk_key_53')" >&nbsp;
+					</div>
+				<div id="wkk_key_54" class="btnSmallNum" style="left: 333px;"
+						onmouseover="doHighlight('wkk_key_54')" >&nbsp;
+					</div>
+				<div id="wkk_key_55" class="btnSmallNum" style="left: 413px;"
+						onmouseover="doHighlight('wkk_key_55')" >&nbsp;
+					</div>
+				<div id="wkk_key_56" class="btnSmallNum" style="left: 493px;" 
+					onmouseover="doHighlight('wkk_key_56')" >&nbsp;
+				</div>
+				<div id="wkk_key_57" class="btnSmallNum" style="left: 573px;"
+					onmouseover="doHighlight('wkk_key_57')" >&nbsp;
+				</div>				
+			</div>
+			
+			<div class="oneRowDivStyle" style="top: 351px;" id="wkk_key_6">
+	 			 
+
+				<div id="" class="btnSmallNum" style="left: 13px;">
+		 		</div>
+				
+				<!-- selectLang Toggle Start -->
+				<div id="wkk_key_61" class="btnSmallNum" style="left: 93px;" 
+						onmouseover="doHighlight('wkk_key_61')" >&nbsp;						
+					</div>
+				<!-- selectLang Toggle End -->
+				
+				<!-- s/t Toggle Start  -->
+				<div id="wkk_key_62" class="btnSmallNum" style="left: 173px;"
+						onmouseover="doHighlight('wkk_key_62')" >&nbsp;						
+					</div>
+				<!-- s/t Toggle End  -->
+				
+				<!-- character Choose Start -->
+				<div id="wkk_key_63" class="btnNormalNum" style="left: 253px;"
+						onmouseover="doHighlight('wkk_key_63')" >&nbsp;
+					</div>
+				<!-- character Choose End -->
+				
+				<!-- Left Arrow Start -->
+				<div id="wkk_key_64" class="btnSmallNum" style="left: 333px;"
+						onmouseover="doHighlight('wkk_key_64')" >
+						<img src="../image/basic/KEYBOARD_BTN_LEFT_N.png">
+					</div>
+				<!-- Left Arrow End -->
+				
+				<!-- Right Arrow Start -->
+				<div id="wkk_key_65" class="btnSmallNum" style="left: 413px;"
+						onmouseover="doHighlight('wkk_key_65')" >
+						<img src="../image/basic/KEYBOARD_BTN_RIGHT_N.png">
+					</div>
+				<!-- Right Arrow End -->
+	 			 
+	 			 <!-- space Btn Start -->
+				<div id="wkk_key_66" class="btnSmallNum" style="left: 493px;" 
+					onmouseover="doHighlight('wkk_key_66')" >
+					<img src="../image/basic/KEYBOARD_BTN_SPACE_N.png">
+				</div>
+				<!-- space Btn End -->
+				
+				<!-- back Space Btn Start -->
+				<div id="wkk_key_67" class="btnSmallNum" style="left: 573px;"
+					onmouseover="doHighlight('wkk_key_67')" >
+					<img src="../image/basic/KEYBOARD_BTN_BACK_N.png" >
+				</div>
+				<!-- back Space Btn End -->
+			</div>
+			
+			<div id="wkk_key_focus_n" class="btnNormalFocus" style="left: 605px; z-index : 1000; visibility: hidden;"
+				onmouseout="cancelHighlight('wkk_key_focus')" 
+				onmousedown="mouseDown('wkk_key_focus')" onmouseup="setInputFocus();">
+			</div>
+			
+			<div id="wkk_key_focus_n1" class="btnSmallFocus" style="left: 605px; z-index : 1000; visibility: hidden;"
+				onmouseout="cancelHighlight('wkk_key_focus')" 
+				onmousedown="mouseDown('wkk_key_focus')" onmouseup="setInputFocus();">
+			</div>
+			
+			<!-- Language Select -->
+			<div id="wkk_key_focus_m" class="btnNormalFocus" style="left: 605px; z-index : 1000; visibility: hidden;"
+				onmouseout="cancelHighlight('wkk_key_60')" 
+				onmousedown="mouseDown('wkk_key_60')" onmouseup="setInputFocus();">
+				<img src="../image/basic/KEYBOARD_BTN_LANGUAGE_P.png">
+			</div>
+			
+			<!-- Left Arrow -->
+			<div id="wkk_key_focus_l_arrow" class="btnNormalFocus" style="left: 605px; z-index : 1000; visibility: hidden;"
+				onmouseout="cancelHighlight('wkk_key_64')" 
+				onmousedown="mouseDown('wkk_key_64')" onmouseup="setInputFocus();">
+				<img src="../image/basic/KEYBOARD_BTN_LEFT_P.png">
+								
+			</div>
+			
+			<!-- Rigth Arrow -->
+ 			<div id="wkk_key_focus_r_arrow" class="btnNormalFocus" style="left: 605px; z-index : 1000; visibility: hidden;"
+				onmouseout="cancelHighlight('wkk_key_65')" 
+				onmousedown="mouseDown('wkk_key_65')" onmouseup="setInputFocus();">
+				<img src="../image/basic/KEYBOARD_BTN_RIGHT_P.png">
+			</div>
+			
+			<!-- Space -->
+			<div id="wkk_key_focus_s" class="btnNormalFocus" style="left: 605px; z-index : 1000; visibility: hidden;"
+				onmouseout="cancelHighlight('wkk_key_66')" 
+				onmousedown="mouseDown('wkk_key_66')" onmouseup="setInputFocus();">
+					<img src="../image/basic/KEYBOARD_BTN_SPACE_P.png">
+			</div>
+			
+			<!-- Back Space -->
+			<div id="wkk_key_focus_b" class="btnNormalFocus" style="left: 605px; z-index : 1000; visibility: hidden;"
+				onmouseout="cancelHighlight('wkk_key_67')" 
+				onmousedown="mouseDown('wkk_key_67')" onmouseup="setInputFocus();">
+					<img src="../image/basic/KEYBOARD_BTN_BACK_P.png">
+			</div>			
+		</div>
+</div>
+
+<!-- end -->
+
+<!-- pop up supoort :
+for your performance,
+Be comment 'div' taht you do not use.
+-->
+<div id="web_keyboard_popup_bg" class="keyboardArea" style="z-index: 4000; visibility: hidden;" >
+	<div id="mini_popup_04" class="miniPopUp04" style="top: 10px; left: 10px; visibility: hidden;">
+		<div id="wkk_p04_00" class="btnPopUpNormal" style="top: 13px; left:  16px;" onmouseover="doHighlightPopUp('wkk_p04_00')">&nbsp;</div>
+		<div id="wkk_p04_01" class="btnPopUpNormal" style="top: 13px; left:  96px;" onmouseover="doHighlightPopUp('wkk_p04_01')" >&nbsp;</div>
+		<div id="wkk_p04_02" class="btnPopUpNormal" style="top: 13px; left: 176px;" onmouseover="doHighlightPopUp('wkk_p04_02')">&nbsp;</div>
+	</div>
+	<div id="mini_popup_01" class="miniPopUp01" style="top: 100px; left: 10px; visibility: hidden;">
+		<div id="wkk_p01_00" class="btnPopUpNormal" style="top: 13px; left:  16px;" onmouseover="doHighlightPopUp('wkk_p01_00')">&nbsp;</div>
+		<div id="wkk_p01_01" class="btnPopUpNormal" style="top: 13px; left:  96px;" onmouseover="doHighlightPopUp('wkk_p01_01')">&nbsp;</div>
+		<div id="wkk_p01_02" class="btnPopUpNormal" style="top: 13px; left: 176px;" onmouseover="doHighlightPopUp('wkk_p01_02')">&nbsp;</div>
+		<div id="wkk_p01_03" class="btnPopUpNormal" style="top: 13px; left: 256px;" onmouseover="doHighlightPopUp('wkk_p01_03')">&nbsp;</div>
+		<div id="wkk_p01_04" class="btnPopUpNormal" style="top: 13px; left: 336px;" onmouseover="doHighlightPopUp('wkk_p01_04')">&nbsp;</div>
+		<div id="wkk_p01_10" class="btnPopUpNormal" style="top: 69px; left:  16px;" onmouseover="doHighlightPopUp('wkk_p01_10')">&nbsp;</div>
+		<div id="wkk_p01_11" class="btnPopUpNormal" style="top: 69px; left:  96px;" onmouseover="doHighlightPopUp('wkk_p01_11')">&nbsp;</div>
+		<div id="wkk_p01_12" class="btnPopUpNormal" style="top: 69px; left: 176px;" onmouseover="doHighlightPopUp('wkk_p01_12')">&nbsp;</div>
+		<div id="wkk_p01_13" class="btnPopUpNormal" style="top: 69px; left: 256px;" onmouseover="doHighlightPopUp('wkk_p01_13')">&nbsp;</div>
+		<div id="wkk_p01_14" class="btnPopUpNormal" style="top: 69px; left: 336px;" onmouseover="doHighlightPopUp('wkk_p01_14')">&nbsp;</div>
+	</div>
+	<div id="mini_popup_02" class="miniPopUp02" style="top: 100px; left: 600px; visibility: hidden;" >
+		<div id="wkk_p02_00" class="btnPopUpNormal" style="top: 13px; left:  16px;" onmouseover="doHighlightPopUp('wkk_p02_00')">&nbsp;</div>
+		<div id="wkk_p02_01" class="btnPopUpNormal" style="top: 13px; left:  96px;" onmouseover="doHighlightPopUp('wkk_p02_01')">&nbsp;</div>
+		<div id="wkk_p02_02" class="btnPopUpNormal" style="top: 13px; left: 176px;" onmouseover="doHighlightPopUp('wkk_p02_02')">&nbsp;</div>
+		<div id="wkk_p02_03" class="btnPopUpNormal" style="top: 13px; left: 256px;" onmouseover="doHighlightPopUp('wkk_p02_03')">&nbsp;</div>
+	</div>
+	<div id="mini_popup_03" class="miniPopUp03" style="top: 300px; left: 10px; visibility: hidden;">
+		<div id="wkk_p03_00" class="btnPopUpNormal" style="top: 13px; left:  16px;" onmouseover="doHighlightPopUp('wkk_p03_00')">&nbsp;</div>
+		<div id="wkk_p03_01" class="btnPopUpNormal" style="top: 13px; left:  96px;" onmouseover="doHighlightPopUp('wkk_p03_01')">&nbsp;</div>
+		<div id="wkk_p03_02" class="btnPopUpNormal" style="top: 13px; left: 176px;" onmouseover="doHighlightPopUp('wkk_p03_02')">&nbsp;</div>
+		<div id="wkk_p03_10" class="btnPopUpNormal" style="top: 69px; left:  16px;" onmouseover="doHighlightPopUp('wkk_p03_10')">&nbsp;</div>
+		<div id="wkk_p03_11" class="btnPopUpNormal" style="top: 69px; left:  96px;" onmouseover="doHighlightPopUp('wkk_p03_11')">&nbsp;</div>
+		<div id="wkk_p03_12" class="btnPopUpNormal" style="top: 69px; left: 176px;" onmouseover="doHighlightPopUp('wkk_p03_12')">&nbsp;</div>
+	</div>
+	<div id="mini_popup_05" class="miniPopUp05" style="top: 300px; left: 600px; visibility: hidden;">
+		<div id="wkk_p05_00" class="btnPopUpNormal" style="top: 13px; left:  16px;" onmouseover="doHighlightPopUp('wkk_p05_00')">&nbsp;</div>
+		<div id="wkk_p05_01" class="btnPopUpNormal" style="top: 13px; left:  96px;" onmouseover="doHighlightPopUp('wkk_p05_01')">&nbsp;</div>
+		<div id="wkk_p05_02" class="btnPopUpNormal" style="top: 13px; left: 176px;" onmouseover="doHighlightPopUp('wkk_p05_02')">&nbsp;</div>
+		<div id="wkk_p05_03" class="btnPopUpNormal" style="top: 13px; left: 256px;" onmouseover="doHighlightPopUp('wkk_p05_03')">&nbsp;</div>
+		<div id="wkk_p05_04" class="btnPopUpNormal" style="top: 13px; left: 336px;" onmouseover="doHighlightPopUp('wkk_p05_04')">&nbsp;</div>
+	</div>
+	<div id="wkk_key_focus_pn" class="btnNormalFocus" style="left: 605px; z-index : 5000; visibility: hidden;"
+		onmouseout="cancelHighlightPopUp()" 
+		onmousedown="execKeyPopUp()" >&nbsp;
+	</div>	
+	
+	
+</div>
+
+
+<!-- Select Lang Start -->
+<div id="layer_ifr1" style="display:none; position:absolute; top:111px; left:0%;margin-left:-50px; width:50x; height:540px;">
+<iframe name="ifr1" style="width:100%; height:100%" frameborder="0" scrolling="no"></iframe>
+</div>
+
+
+<div id="layer_ifr" style="display:none; position:absolute; top:90px; left:50%;margin-left:-380px; width:1280px; height:610px;">
+<iframe name="ifr" style="width:100%; height:100%" frameborder="0" scrolling="no"></iframe>
+</div>
+
+
+<div id="layer_ifr2" style="display:none; position:absolute; top:111px; left:60%;margin-left:210px; width:300px; height:540px;">
+<iframe name="ifr2" style="width:100%; height:100%" frameborder="0" scrolling="no"></iframe>
+</div>
+
+<div id="layer_ifr3" style="display:none; position:absolute; top:620px; left:0%; width: 1280px; height:80px;">
+<iframe name="ifr3" style="width:100%; height:100%" frameborder="0" scrolling="no"></iframe>
+</div>
+<!-- Select Lang End -->
+ 
+<!-- key help area -->
+<div id="key_bdp_bg" style="display: none;position: absolute; top: 628px;width:1280px;height:93px;background-image:url(../image/KEYHELP/KEYHELP_BG.png)">
+&nbsp;
+</div>
+<div id="key_bdp" style="display: none;">
+	<div id="kh_3" style="left:1042px;" onmouseover="processKeyHelpOver(3);" onmouseout="processKeyHelpOut(3);" onmousedown="processKeyHelp('back');" class="keyhelp">
+		<div id="khImg3" style="position: absolute; top:8px;left:55px">
+			<img id="khImg3" src="../image/KEYHELP/KEYHELP_ICON_BACK.png" style="vertical-align: middle;"> Back
+		</div>
+	</div>	
+</div>
+
+<!-- key help area -->
+		<div class="LoginTitleBar">
+				<div id="LoginTitleText" class="LoginTitleText">登入</div>
+			</div>
+
+
+<!-- version info -->
+<div id="versionInfo">&nbsp;</div>
+
+
+
+</body>
+
+
+</html>

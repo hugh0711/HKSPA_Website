@@ -1,0 +1,6 @@
+﻿Dear <%UserName%>,<br /><br />
+
+Welcome to MajiTV. Your account is activated. Start your new experience in MajiTV <%HomeUrl%>
+
+Best regards,<br />
+MajiTV

@@ -1,0 +1,13 @@
+﻿<p>親愛的<%UserName%>:</p>
+
+<p>我們是MajiTV，感謝你在書展和動漫節期間親臨我們的攤位和註冊成為會員，我們每天都會發放新節目，緊貼潮流話題。歡迎瀏覽我們最新的網上頻道www.majitv.com。</p>
+
+<p>此外，你也可透過智能手機免費下載MajiTV Apps，隨時隨地觀賞我們的豐富節目。</p>
+<p>iPhone: <a href="http://www.majitv.com/app/iphone">http://www.majitv.com/app/iphone</a><br />
+Android: <a href="http://www.majitv.com/app/android">http://www.majitv.com/app/android</a></p>
+<p>我們已按照你留下的email設定為用戶名字，密碼是123456。如果你想更改密碼，可以先登入www.majitv.com按[我的資料]隨意修改。
+另外，我們正舉辦創意口號大激鬥比賽，只要你自拍不多於10秒宣傳口號上載到MajiTV Facebook的video album，就有機會得到Samsung Galaxy S III一部，詳情可參閱我們的海報，玩法簡單有趣，我們誠意邀請你參加，謝謝。</p>
+
+<p>
+<img src="http://www.majitv.com/assets/images/slogan_competition.jpg" width="700" height="993" />
+</p>
