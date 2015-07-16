@@ -185,8 +185,9 @@
                                 <div class="inside">
 
                                     <hgroup>
-
-                                        <h2><%# Eval("AlbumName")%></h2>
+                                       
+                                        <!--<h2><%# Eval("AlbumName")%></h2><br />-->
+                                        <h2><%# String.Format("{0}", CharFormat(Eval("AlbumName")))%></h2>
                                         <%--<h2>Boxing</h2>--%>
 
                                     </hgroup>
@@ -225,26 +226,32 @@
               </div>
 
 
-          <div align="center">
+          <div align="center" style="margin:30px;">
           <asp:DataPager ID="DataPager1" runat="server" PagedControlID="lvwFeature" PageSize="15">  
                                 <Fields>  
                                     <asp:NextPreviousPagerField   
-                                        ButtonType="Button"   
+                                        ButtonType="Link"   
                                         ShowFirstPageButton="true"  
-                                        ShowNextPageButton="true"  
-                                        ShowPreviousPageButton="false"  
-                                        ButtonCssClass="ButtonCSS"  
+                                        ShowNextPageButton="false"  
+                                        ShowPreviousPageButton="true" 
+                                        FirstPageText="<img src='assets/images/first.png' style='width:20px;height:20px' alt='first' border='0'>" 
+                                        PreviousPageText="<img src='assets/images/prev.png' style='width:20px;height:20px' alt='next' border='0'>"
+                                        ButtonCssClass="h2"  
                                         />  
                                     <asp:NumericPagerField   
-                                        NumericButtonCssClass="NumericButtonCSS"  
-                                        CurrentPageLabelCssClass="CurrentPageLabelCSS"  
-                                        NextPreviousButtonCssClass="NextPreviousButtonCSS"  
-                                        />  
+                                        NumericButtonCssClass="h8"  
+                                        CurrentPageLabelCssClass="h8"  
+                                        NextPreviousButtonCssClass="h8"  
+                                    />  
                                     <asp:NextPreviousPagerField   
-                                        ButtonType="Button"  
+                                        ButtonType="Link"  
                                         ShowLastPageButton="true"  
-                                        ShowNextPageButton="false"  
-                                        ButtonCssClass="ButtonCSS"  
+                                        ShowNextPageButton="true"
+                                        ShowPreviousPageButton="false"  
+                                        NextPageText="<img src='assets/images/next.png' style='width:20px;height:20px' alt='first' border='0'>"   
+                                        LastPageText="<img src='assets/images/last.png' style='width:20px;height:20px' alt='last' border='0'>" 
+                                        
+                                        ButtonCssClass="h2"  
                                         />  
                                 </Fields>  
                             </asp:DataPager> 

@@ -51,8 +51,24 @@ Partial Class Portfolio_Sub
         End If
     End Sub
 
- 
+    Protected Function CharFormat(albumName As String) As String
+        Dim result As String = ""
+        Dim charLimit As Integer = 30
+        Dim charCount As Integer = 0
+        If albumName.Count > charLimit Then
+            For Each albumNameTxt In albumName
+                If charCount < charLimit Then
+                    result += albumNameTxt
+                End If
+                charCount += 1
+            Next
+            result = String.Format("{0} ...", result)
+        Else
+            result = albumName
+        End If
 
+        Return result
+    End Function
 
     Protected Function ImageItem(CatID As Guid) As String
 
