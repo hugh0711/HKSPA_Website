@@ -677,7 +677,9 @@ HKSPA
     </div>
 
     
-
+    <div style="width:60px;height:60px;position:fixed;right:5%;bottom:10%;z-index:2000;">
+        <a href="#top_menu"><img src="images/back2top.png" alt="" width="60"  height="60"></a>
+    </div>
 
 
 </body>
