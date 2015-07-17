@@ -13,8 +13,10 @@ Partial Class backoffice_albums
             hfdCategoryID.Value = Request("category")
 
             If hfdCategoryID.Value = "" Or hfdCategoryID.Value = "0" Then
-                dsAlbum.SelectCommand = String.Format("SELECT AlbumID, AlbumName, Enabled, PhotoCount, PreviewUrl FROM view_AlbumCategory where Lang='{0}' ORDER BY [AlbumDate] desc", hfd_defaultLanguage.Value)
-                dsAlbum.DataBind()
+                'dsAlbum.SelectCommand = String.Format("SELECT AlbumID, AlbumName, Enabled, PhotoCount, PreviewUrl FROM view_AlbumCategory where Lang='{0}' ORDER BY CreateDate", hfd_defaultLanguage.Value)
+                'dsAlbum.DataBind()
+                lvAlbum.DataSourceID = "dsAlbumAll"
+                dsAlbumAll.DataBind()
             Else
 
                 LoadCategoryTree()
@@ -164,9 +166,15 @@ Partial Class backoffice_albums
     Protected Sub BindList()
         If ViewState("ByCategory") Then
 
+            lvAlbum.DataSourceID = "dsAlbum"
+            dsAlbumAll.DataBind()
+
             lblAllCategory.Visible = False
             lblParentID.Visible = False
         Else
+
+            lvAlbum.DataSourceID = "dsAlbumAll"
+            dsAlbumAll.DataBind()
 
             lblAllCategory.Visible = True
 
@@ -203,4 +211,26 @@ Partial Class backoffice_albums
     
 
 
+    Protected Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        If txtAlbumName.Text.Length > 0 Then
+
+
+            If lvAlbum.DataSourceID = "dsAlbum" Then
+                dsAlbum.SelectCommand = "SELECT [AlbumID], [AlbumName], [Enabled], [PhotoCount], [PreviewUrl] FROM view_AlbumCategory WHERE (CategoryID = @CategoryID) AND (Lang = @Lang) AND AlbumName LIKE '%" & txtAlbumName.Text & "%' ORDER BY [AlbumDate] desc"
+            Else
+                dsAlbumAll.SelectCommand = "SELECT [AlbumID], [AlbumName], [Enabled], [PhotoCount], [PreviewUrl] FROM view_AlbumCategory WHERE (Lang = @Lang) AND AlbumName LIKE '%" & txtAlbumName.Text & "%' ORDER BY [AlbumDate] desc"
+            End If
+
+            lvAlbum.DataBind()
+
+
+
+        End If
+    End Sub
+
+    Protected Sub btnReset_Click(sender As Object, e As EventArgs) Handles btnReset.Click
+        lvAlbum.DataSourceID = "dsAlbumAll"
+
+        dsAlbumAll.DataBind()
+    End Sub
 End Class

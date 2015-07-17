@@ -156,9 +156,11 @@
                     <fieldset>
                         <legend>相片</legend>
                         <div id="album-photos">
-                        <ul >
-                        <asp:PlaceHolder runat="server" ID="ItemPlaceHolder"></asp:PlaceHolder>
-                        </ul>
+                            <ul>
+                                <asp:PlaceHolder runat="server" ID="ItemPlaceHolder"></asp:PlaceHolder>
+
+                                
+                            </ul>
                         </div>
                     </fieldset>
                 </LayoutTemplate>
@@ -183,7 +185,19 @@
                             <asp:HyperLink ID="HyperLink2" runat="server" ImageUrl='<%# IO.Path.Combine(Utility.GetAlbumPath(hfdAlbumID.Value, ImageClass.ImageSize.Thumbnail), Eval("PhotoName")) %>' 
                                     NavigateUrl='<%# IO.Path.Combine(AlbumPath, Eval("PhotoName")) %>'  rel="lightbox[photo]" 
                                     ToolTip='<%# Eval("Description") %>' CssClass="edit-mode" /><br />
-                            <asp:TextBox runat="server" ID="txtDescription" TextMode="MultiLine" Rows="3" Text='<%# Bind("Description") %>'></asp:TextBox>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <asp:Label runat="server" Text="Description"/>
+                                    </td>
+                                    <td>
+                                        <asp:TextBox runat="server" ID="txtDescription" TextMode="MultiLine" Rows="3" Text='<%# Bind("Description") %>'></asp:TextBox>
+                                    </td>
+                                </tr>
+
+                            </table>
+                            
+                            
                         
                         </div>
                         <div>
@@ -193,6 +207,15 @@
                     </li>
                 </EditItemTemplate>
             </asp:ListView>
+            <asp:DataPager ID="DataPager1" runat="server" PagedControlID="lstPhoto" PageSize="10">
+                <Fields>
+                    <asp:NextPreviousPagerField ButtonType="Link" ShowFirstPageButton="true" ShowNextPageButton="false"
+                        ShowPreviousPageButton="false" FirstPageText="First" />
+                    <asp:NumericPagerField ButtonType="Link" />
+                    <asp:NextPreviousPagerField ButtonType="Link" ShowLastPageButton="true" ShowNextPageButton="false"
+                        ShowPreviousPageButton="false" LastPageText="Last" />
+                </Fields>
+            </asp:DataPager>
         </ContentTemplate>
     </asp:UpdatePanel>
     <asp:UpdateProgress runat="server" ID="UpdateProgress2" AssociatedUpdatePanelID="UpdatePanel2">

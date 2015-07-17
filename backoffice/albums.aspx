@@ -48,6 +48,15 @@
 
 
 
+    <asp:Panel runat="server" ID="pnlProductSearch" DefaultButton="btnSearch">
+					Name:
+					<asp:TextBox ID="txtAlbumName" runat="server" Width="300px"></asp:TextBox>
+					<asp:Button ID="btnSearch" runat="server" Text="搜尋" Width="80px" />
+					<asp:Button ID="btnReset" runat="server" Text="重設" Width="80px" />
+            </asp:Panel>
+
+
+
     <h2>相簿管理</h2>
 
     <div>
@@ -56,12 +65,25 @@
 
     <%--<asp:SqlDataSource runat="server" ID="dsAlbum" 
         ConnectionString="<%$ ConnectionStrings:MySqlConnection %>" 
-        SelectCommand="SELECT [AlbumID], [AlbumName], [Enabled], [PhotoCount], [PreviewUrl] FROM [Album] ORDER BY [AlbumDate] desc">
+        SelectCommand="SELECT [AlbumID], [AlbumName], [Enabled], [PhotoCount], [PreviewUrl] FROM [Album] ORDER BY [CreateDate]">
     </asp:SqlDataSource>--%>
+
+   
+    <asp:SqlDataSource runat="server" ID="dsAlbumAll" 
+        ConnectionString="<%$ ConnectionStrings:MySqlConnection %>" 
+        SelectCommand="SELECT [AlbumID], [AlbumName], [Enabled], [PhotoCount], [PreviewUrl] FROM [HKSPA_dev].[dbo].[view_AlbumCategory] where [Lang]=@Lang order by [AlbumDate] desc">
+        <SelectParameters>
+
+            <asp:ControlParameter Name="Lang" ControlID="hfd_defaultLanguage" DefaultValue="zh-hk"
+                        PropertyName="Value" Type="String" />
+                
+        </SelectParameters>
+
+    </asp:SqlDataSource>
 
     <asp:SqlDataSource runat="server" ID="dsAlbum" 
         ConnectionString="<%$ ConnectionStrings:MySqlConnection %>" 
-        SelectCommand="SELECT [AlbumID], [AlbumName], [Enabled], [PhotoCount], [PreviewUrl] FROM [HKSPA_dev].[dbo].[view_AlbumCategory] where [CategoryID]=@CategoryID and [Lang]=@Lang ORDER BY [AlbumDate] desc">
+        SelectCommand="SELECT [AlbumID], [AlbumName], [Enabled], [PhotoCount], [PreviewUrl] FROM [HKSPA_dev].[dbo].[view_AlbumCategory] where [CategoryID]=@CategoryID and [Lang]=@Lang order by [AlbumDate] desc">
         <SelectParameters>
                     <asp:ControlParameter Name="CategoryID" ControlID="hfdCategoryID" DefaultValue="0"
                         PropertyName="Value" Type="Int32" />
@@ -78,6 +100,14 @@
         <LayoutTemplate>
             <ul>
                 <asp:PlaceHolder runat="server" ID="ItemPlaceHolder"></asp:PlaceHolder>
+                <asp:DataPager ID="DataPager1" runat="server" PagedControlID="lvAlbum" PageSize="10">
+                    <Fields>
+                        <asp:NextPreviousPagerField ButtonType="Link" ShowFirstPageButton="false" ShowPreviousPageButton="true"
+                            ShowNextPageButton="false" />
+                        <asp:NumericPagerField ButtonType="Link" />
+                        <asp:NextPreviousPagerField ButtonType="Link" ShowNextPageButton="true" ShowLastPageButton="false" ShowPreviousPageButton = "false" />
+                    </Fields>
+                </asp:DataPager>
             </ul>
         </LayoutTemplate>
         <ItemTemplate>
