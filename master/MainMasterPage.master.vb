@@ -22,7 +22,7 @@ Partial Class master_MainMasterPage
             Background()
         End If
 
-
+        lbl_copyright.Text = String.Format("<p>Copyright © 2004 - {0} Hong Kong Sports Photography Association All rights reserved</p>", Date.Today.Year.ToString)
 
 
     End Sub
@@ -218,6 +218,8 @@ Partial Class master_MainMasterPage
         lit_background.Text = BG
 
     End Sub
+
+    
 
     Protected Function BG_String(ByVal file As String) As String
         Dim temp As String = ""
