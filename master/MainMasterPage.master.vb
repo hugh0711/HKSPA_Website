@@ -150,7 +150,15 @@ Partial Class master_MainMasterPage
         'lit_submenu.Text = submenu
     End Sub
 
-
+    Protected Sub LoginButton_Click(sender As Object, e As System.EventArgs)
+        If Membership.ValidateUser(Login1.UserName, Login1.Password) Then
+            FormsAuthentication.SetAuthCookie(Login1.UserName, Login1.RememberMeSet)
+            'ClientScript.RegisterStartupScript(Me.GetType, "RefreshParent", "<script type=text/javascript>RefreshParent();</script>", False)
+            'Dim Url As String = Request("ReturnUrl")
+            'If Url = "" Then Url = "~/Default.aspx"
+            'Response.Redirect(Url)
+        End If
+    End Sub
     Protected Sub Background()
         '        <style type="text/css" >
 
