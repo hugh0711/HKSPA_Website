@@ -110,8 +110,8 @@
             document.getElementById("loginform").style.visibility = "visible";
         }
         function doquit() {
-            //document.getElementById("loginformContainer").style.visibility = "hidden";
-           // document.getElementById("loginform").style.visibility = "hidden";
+            document.getElementById("loginformContainer").style.visibility = "hidden";
+            document.getElementById("loginform").style.visibility = "hidden";
         }
         
 
@@ -689,19 +689,19 @@ HKSPA
                                     <LayoutTemplate>
 
                                         <p style="margin: 5px 0 5px;color:red;">
-                                            <asp:TextBox ID="UserName" runat="server" placeholder="Username" style="box-shadow: 0px 0px 0px 4px #f2f5f7; width: 290px;height: 33px;padding: 0 10px 0 10px;margin: 0 auto;color: #aeaeae;border: 1px solid #bec2c4;background-color:#FFF !important;"></asp:TextBox>
+                                            <asp:TextBox ID="UserName" runat="server" placeholder="Username" style="box-shadow: 0px 0px 0px 4px #f2f5f7; width: 290px;height: 33px;padding: 0 10px 0 10px;margin: 0 auto;color: #aeaeae !important;border: 1px solid #bec2c4;background-color:#FFF !important;"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="UserNameRequired" runat="server"
                                                 ControlToValidate="UserName" ErrorMessage="請輸入帳戶"
                                                 ToolTip="必須輸入帳戶" ValidationGroup="Login1">*</asp:RequiredFieldValidator>
                                         </p>
 
                                         <p style="margin: 0;color:red;">
-                                            <asp:TextBox ID="Password" runat="server" TextMode="Password" Placeholder="Password" style="box-shadow: 0px 0px 0px 4px #f2f5f7; width: 270px;height: 33px;padding: 0 10px 0 10px;margin: 0 auto;color: #aeaeae;border: 1px solid #bec2c4;"></asp:TextBox>
+                                            <asp:TextBox ID="Password" runat="server" TextMode="Password" Placeholder="Password" style="box-shadow: 0px 0px 0px 4px #f2f5f7; width: 270px;height: 33px;padding: 0 10px 0 10px;margin: 0 auto;color: #aeaeae !important;border: 1px solid #bec2c4;"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="PasswordRequired" runat="server"
                                                 ControlToValidate="Password" ErrorMessage="請輸入密碼"
                                                 ToolTip="必須輸入密碼." ValidationGroup="Login1">*</asp:RequiredFieldValidator>
                                        </p>  
-                                         <label for="remember" style="float: left;display: inline;vertical-align: middle;">
+                                         <label for="remember" style="float: left;display: inline;vertical-align: middle;padding-left:0;margin-left:0;">
                                               <input type="checkbox" name="remember_me" id="remember_me" style="margin:0;">
                                             <span style="font-size:12px;  font-family: 'Titillium Web', sans-serif;color:#7F8289;">Remember me on this computer</span>
                                         </label>
