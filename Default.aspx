@@ -280,15 +280,12 @@
 
                             <div class="modal hide fade" id='<%# String.Format(("myModal{0}"), Eval("ProductID"))%>' tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none" aria-hidden="true">
                                 <div class="modal-dialog">
-                                    <div class="modal-content">
+                                    <div class="modal-content" >
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                             <h4 class="modal-title" id="myModalLabel">
-
                                                 <%#Eval("ProductName")%>
-          
-
-            </h4>
+                                            </h4>
                                         </div>
                                         <div class="modal-body">
                                             <div id="MainContent">
@@ -366,9 +363,9 @@
                 //itemsTablet: [600, 2], //2 items between 600 and 0;
                 //itemsMobile: false, // itemsMobile disabled - inherit from itemsTablet option
                 lazyLoad: true,
-                //slideSpeed: 300,
+                slideSpeed: 300,
                 paginationSpeed: 400,
-                //autoPlay: 3000,
+                autoPlay: 3000,
                 navigation: false,
                 pagination: true,
                 paginationNumbers: false,
