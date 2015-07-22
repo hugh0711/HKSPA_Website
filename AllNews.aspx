@@ -49,7 +49,7 @@
                             </LayoutTemplate>
                             <ItemTemplate>
 						    <li>
-							    <div data-alt="img03" data-description="<h3><%#Eval("ProductName")%></h3>" data-max-width="1800" data-max-height="1350">
+							    <div data-alt="img03" data-description="<h3><%#Eval("ProductName")%></h3>" data-name="<%#Eval("Description")%>" data-max-width="1800" data-max-height="1350">
 								    <div data-src="<%# String.Format("product_image/product_original/{0}", Eval("Url"))%>" data-min-width="1300"></div>
 								    <%--<div data-src="images/xxlarge/3.jpg" data-min-width="1000"></div>
 								    <div data-src="images/xlarge/3.jpg" data-min-width="700"></div>
@@ -139,7 +139,7 @@
 	    </script>	
 
         <div id="paging" align="center" style="position: fixed; bottom: 10px; align-content: center; width: 100%">
-            <asp:DataPager ID="DataPager1" runat="server" PagedControlID="ListView2" PageSize="5">
+            <asp:DataPager ID="DataPager1" runat="server" PagedControlID="ListView2" PageSize="20">
                 <Fields>
                     <asp:NextPreviousPagerField
                         ButtonType="Button"

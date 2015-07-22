@@ -396,10 +396,12 @@ var Gamma = (function() {
 					$picEl = $item.children(),
 					sources = _getImgSources( $picEl ),
 					source = _chooseImgSource( sources, $item.outerWidth( true ) ),
-					description = $picEl.data( 'description' );
+					description = $picEl.data('description');
+				    name = $picEl.data('name');
 
 				// data is saved in the <li> element
-				$item.data( {
+				$item.data({
+                    name: name,
 					description : description,
 					source : sources,
 					maxwidth : $picEl.data( 'maxWidth' ),
@@ -863,7 +865,8 @@ var Gamma = (function() {
 				}
 
 			}
-			Gamma.svDescription.html( data.description );
+		    //Gamma.svDescription.html( data.description );
+			Gamma.svDescription.html("<div style='color:#FFF;max-width:800px;text-align:justify;margin:auto;font-size:10px;'>" + data.name + "</div>");
 
 			// loading status: give a little amount of time before displaying it
 			var loadingtimeout = setTimeout( function() { Gamma.singleview.addClass( 'gamma-loading' );	}, Gamma.settings.svImageTransitionSpeedFade + 250 );

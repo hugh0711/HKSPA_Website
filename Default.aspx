@@ -264,8 +264,9 @@
                                 <%--<img class="img-news" src='<%# String.Format("product_image/product/{0}", Eval("Url"))%>' alt="">--%>
 
                                 <a href='<%# String.Format("product_image/product_original/{0}", Eval("Url"))%>' rel="prettyPhoto[pp_gal]" title='<%# Eval("ProductName")%>'>
-                                    <img alt='<%# Eval("ProductName")%>' src='<%# String.Format("product_image/product/{0}", Eval("Url"))%>' style="background: '<%# String.Format("product_image/product/{0}", Eval("Url"))%>'; background-size: cover;" class="img-news" /></a>
-
+                                    <div style="background:url('<%# String.Format("product_image/product/{0}", Eval("Url"))%>') no-repeat;width:100%;height:300px;top:0;background-size:cover;">
+                                    <img alt='<%# Eval("ProductName")%>' src='<%# String.Format("product_image/product/{0}", Eval("Url"))%>' background-size: cover;" class="img-news" style="opacity:0;"/></a>
+                                    </div>
 
                                 <div class="inside">
                                     <p class="post-date"><i class="icon-calendar"></i><%# String.Format("{0:d}", Eval("SellingStartDate"))%></p>
