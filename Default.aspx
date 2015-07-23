@@ -2,7 +2,16 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContentPlaceHolder" runat="Server">
 
-
+    <script type="text/javascript">
+        function openNewsModal(div_id,header) {
+            var descriptionBody = document.getElementById(div_id).innerHTML;
+            document.getElementById("newsModalHeader").innerHTML = header;
+            document.getElementById("newsModalBody").innerHTML = descriptionBody;
+        }
+        function closeNewsModal() {
+            
+        }
+    </script>
      <!--owl carousel-->
   <%--  <script type="text/javascript" src="js/owlCarousel/application.js"></script>
     <script type="text/javascript" src="js/owlCarousel/bootstrap-collapse.js"></script>
@@ -233,14 +242,14 @@
     </section>
 
     <!--******************** News Section ********************-->
-    <section id="news" class="single-page scrollblock">
+    <section id="news" class="single-page scrollblock" style="max-width:1250px;margin:auto;">
        
         <h1>
             <asp:Image runat="server" ImageUrl="~/images/hkspaimg/portfolio/news.png" meta:resourcekey="img_newsResource1" ID="img_news" />
         </h1>
 
         <!-- Three columns -->
-        <div id="owl-demo" class="row" style="margin:0;">
+        <div id="owl-demo" class="row" >
                 <asp:SqlDataSource runat="server" ID="SqlNews"
                     ConnectionString="<%$ ConnectionStrings:MySqlConnection %>"
                     SelectCommand="SELECT Top 6 [ProductID],[Enabled],[SortOrder],[ProductName],[SellingStartDate],[Url],[FunctionID],[Description] FROM [view_ProductImage] WHERE ([Enabled] = @Enabled) and ([FunctionID]=3) and ([Lang]=@lang) ORDER BY [SortOrder]">
@@ -268,18 +277,25 @@
                                     <img alt='<%# Eval("ProductName")%>' src='<%# String.Format("product_image/product/{0}", Eval("Url"))%>' background-size: cover;" class="img-news" style="opacity:0;"/></a>
                                     </div>
 
-                                <div class="inside">
+                                <div class="inside" style="padding-top:0;">
                                     <p class="post-date"><i class="icon-calendar"></i><%# String.Format("{0:d}", Eval("SellingStartDate"))%></p>
                                     <h2><%# Eval("ProductName")%></h2>
-                                    <div class="entry-content">
-
-                                        <asp:Button runat="server" class="more-link" meta:resourcekey="btn_ReadMoreResource1" ID="btn_ReadMore" data-toggle="modal" data-target='<%# String.Format(("#myModal{0}"), Eval("ProductID"))%>' Visible='<%#IIf(Eval("Description").ToString.Length > 0 And Eval("Description") IsNot Nothing, True, False)%>' />
-
+                                    <div onclick="openNewsModal('<%#String.Format("dummyDiv_{0}", Eval("ProductID"))%>','<%# Eval("ProductName")%>')" class="entry-content">
+                                        <%--<asp:Button runat="server" class="more-link" meta:resourcekey="btn_ReadMoreResource1" ID="btn_ReadMore" data-toggle="modal" data-target='<%# String.Format(("#myModal{0}"), Eval("ProductID"))%>' Visible='<%#IIf(Eval("Description").ToString.Length > 0 And Eval("Description") IsNot Nothing, True, False)%>' />--%>
+                                        <%--<asp:Button runat="server" class="more-link" meta:resourcekey="btn_ReadMoreResource1" ID="btn_ReadMore" data-toggle="modal" data-target="myModal" Visible='<%#IIf(Eval("Description").ToString.Length > 0 And Eval("Description") IsNot Nothing, True, False)%>' />
+                                        --%>
+                                       
+                                        <a data-toggle="modal" meta:resourcekey="btn_ReadMoreResource1" data-target="#myModal" ><h2 style="cursor:pointer;font-size:13px;color:#666;text-align:right;" >More...</h2></a>
+                                        
                                     </div>
+                                     <div id='<%#String.Format("dummyDiv_{0}", Eval("ProductID"))%>' style="visibility:collapse;"> <%#Eval("Description")%></div>
                                 </div>
                             </article>
 
-                            <div class="modal hide fade" id='<%# String.Format(("myModal{0}"), Eval("ProductID"))%>' tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none" aria-hidden="true">
+
+                           
+                            
+                           <%--<div class="modal hide fade" id='<%# String.Format(("myModal{0}"), Eval("ProductID"))%>' tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content" >
                                         <div class="modal-header">
@@ -299,23 +315,56 @@
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                         </div>
                                     </div>
-                                    <!-- /.modal-content -->
                                 </div>
-                                <!-- /.modal-dialog -->
-                            </div>
-                            <!-- /.modal -->
+                            </div>--%>
+
+                           
+                            
+
+                           
                         </div>
+
+                        
                     </ItemTemplate>
                 </asp:ListView>
         </div>
         <!-- /.row -->
 
-        <asp:HyperLink ID="readmore_hlink" runat="server" rel="prettyPhoto[iframes]" meta:resourcekey="readmore_hlinkResource1" NavigateUrl="~/AllNews.aspx?iframe=true&width=100%&height=100%" style="margin-left:30px;">更多 >></asp:HyperLink>
+        <asp:HyperLink ID="readmore_hlink" runat="server" rel="prettyPhoto[iframes]" meta:resourcekey="readmore_hlinkResource1" NavigateUrl="~/AllNews.aspx?iframe=true&width=100%&height=100%" style="margin-left:10px;">更多 >></asp:HyperLink>
+        <%--<button type="button" style="width:50px;height:50px;background-color:rgba(0,0,0,0.5);" data-toggle="modal" title="asdsadsa" data-target="#myModal">Open Modal</button>--%>
 
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 id="newsModalHeader" class="modal-title"></h4>
+                </div>
+                <div id="newsModalBody" class="modal-body">
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+      
+            </div>
+        </div>
+         
         <%--<a id="A1" href="~/AllNews.aspx?iframe=true&width=100%&height=100%" rel="prettyPhoto[iframes]" runat="server">Read More >></a>--%>
 
 
     </section>
+
+
+   <%-- <div onclick="closeNewsModal()" id="newsModalBg" runat="server" visible="true" class="loginformContainer"  style="position:fixed;width:100%;height:50%;z-index:99999;left:0;top:0;background-color:rgba(0,0,0,0.5);" >
+    </div>
+    <div id="newsModal" runat="server" class="modal_login" style="z-index:999999;position: fixed; top: 50%; left: 50%; width: 0px; line-height: 200px; height: 0px; margin-left: -200px; margin-top: -100px; background-color: transparent; text-align: center; z-index: 999999;">
+        <h2 style="font-size: 14px; font-weight: bold; color: #555555; font-family: HelveticaNeue,Helvetica, Arial, sans-serif; padding: 0; margin: 0; text-shadow: 0 1px 0 #fff; filter: dropshadow(color=#fff, offx=0, offy=1); line-height: 45px; margin-bottom: 24px; padding: 0; /* margin-left: 25px; */">登入 Login</h2>
+        <div id="newsDescModal" style="background-color:#FFF;width:200px;height:200px;">wefewfewf</div>
+    </div>--%>
 
     <script src="owl-carousel/owl.carousel.js"></script>
 

@@ -62,8 +62,8 @@
 }
 
 .gamma-description {
-	background: #fff;
-	background: rgba(255, 255, 255, 0.6);
+	background: #000;
+	background: rgba(0, 0, 0, 0.8);
 	position: absolute;
 	top: 20px;
 	left: 20px;
@@ -98,6 +98,7 @@
 }
 
 .gamma-description h3 {
+    color:#FFF;
 	width: 100%;
 	padding: 0 20px;
 	font-weight: 400;

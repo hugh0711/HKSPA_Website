@@ -150,13 +150,29 @@ Partial Class master_MainMasterPage
         'lit_submenu.Text = submenu
     End Sub
 
+    Protected Sub A1_hlink_Click_Hide()
+        ShowLoginPanel(False)
+    End Sub
+
+    Protected Sub A1_hlink_Click(ByVal sender As Object, ByVal e As System.EventArgs)
+        ShowLoginPanel(True)
+    End Sub
+
+    Protected Sub LoginValidate(ByVal source As System.Object, ByVal args As System.Web.UI.WebControls.ServerValidateEventArgs)
+        args.IsValid = Membership.ValidateUser(Login1.UserName, Login1.Password)
+
+
+    End Sub
+
     Protected Sub LoginButton_Click(sender As Object, e As System.EventArgs)
-        If Membership.ValidateUser(Login1.UserName, Login1.Password) Then
+        If Page.IsValid And Membership.ValidateUser(Login1.UserName, Login1.Password) Then
             FormsAuthentication.SetAuthCookie(Login1.UserName, Login1.RememberMeSet)
             'ClientScript.RegisterStartupScript(Me.GetType, "RefreshParent", "<script type=text/javascript>RefreshParent();</script>", False)
             'Dim Url As String = Request("ReturnUrl")
             'If Url = "" Then Url = "~/Default.aspx"
             'Response.Redirect(Url)
+        Else
+            ShowLoginPanel(True)
         End If
     End Sub
     Protected Sub Background()
@@ -247,6 +263,10 @@ Partial Class master_MainMasterPage
         Return temp
     End Function
 
+    Private Sub ShowLoginPanel(ByVal IsShow As Boolean)
+        loginformContainer.Visible = IsShow
+        loginform.Visible = IsShow
+    End Sub
     
 End Class
 

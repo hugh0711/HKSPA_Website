@@ -142,20 +142,26 @@
             <asp:DataPager ID="DataPager1" runat="server" PagedControlID="ListView2" PageSize="20">
                 <Fields>
                     <asp:NextPreviousPagerField
-                        ButtonType="Button"
-                        ShowFirstPageButton="true"
-                        ShowNextPageButton="true"
-                        ShowPreviousPageButton="false"
-                        ButtonCssClass="ButtonCSS" />
+                        ButtonType="Link" 
+                        ShowFirstPageButton="true"  
+                        ShowNextPageButton="false"  
+                        ShowPreviousPageButton="true" 
+                        FirstPageText=" << " 
+                        PreviousPageText=" < "
+                        ButtonCssClass="h2"  />
                     <asp:NumericPagerField
                         NumericButtonCssClass="NumericButtonCSS"
                         CurrentPageLabelCssClass="CurrentPageLabelCSS"
                         NextPreviousButtonCssClass="NextPreviousButtonCSS" />
                     <asp:NextPreviousPagerField
-                        ButtonType="Button"
-                        ShowLastPageButton="true"
-                        ShowNextPageButton="false"
-                        ButtonCssClass="ButtonCSS" />
+                        ButtonType="Link"  
+                        ShowLastPageButton="true"  
+                        ShowNextPageButton="true"
+                        ShowPreviousPageButton="false"  
+                        NextPageText=" > "   
+                        LastPageText=" >> " 
+                                        
+                        ButtonCssClass="h2"  />
                 </Fields>
             </asp:DataPager>
         </div>
